@@ -519,17 +519,21 @@ if (leadForm) {
     pathToSection[sectionToPath[id]] = id;
   });
 
-  // On page load: if URL is a section path, scroll to that section
+  // On page load: if URL is a section path, scroll to that section instantly
   var initialPath = window.location.pathname;
   var initialSectionId = pathToSection[initialPath];
   if (initialSectionId) {
+    // Hide page until positioned — prevents flash of hero before scroll
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.visibility = 'hidden';
     window.addEventListener('DOMContentLoaded', function() {
       var target = document.getElementById(initialSectionId);
       if (target) {
-        setTimeout(function() {
-          target.scrollIntoView({ behavior: 'instant', block: 'start' });
-        }, 50);
+        var navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+        window.scrollTo(0, target.offsetTop - navHeight);
       }
+      document.body.style.visibility = '';
+      document.documentElement.style.scrollBehavior = '';
     });
   }
 
