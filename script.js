@@ -500,8 +500,40 @@ if (leadForm) {
   }
 })();
 
-// ===== ACTIVE NAV HIGHLIGHTING + URL HASH UPDATE =====
+// ===== CLEAN URL ROUTING =====
 (function() {
+  // Map section IDs to clean URL paths
+  var sectionToPath = {
+    'problems':   '/the-problem',
+    'method':     '/method',
+    'coaching':   '/coaching',
+    'about':      '/about',
+    'for-you':    '/for-you',
+    'pricing':    '/pricing',
+    'insights':   '/insights'
+  };
+
+  // Reverse map: path → section ID (for page load scroll)
+  var pathToSection = {};
+  Object.keys(sectionToPath).forEach(function(id) {
+    pathToSection[sectionToPath[id]] = id;
+  });
+
+  // On page load: if URL is a section path, scroll to that section
+  var initialPath = window.location.pathname;
+  var initialSectionId = pathToSection[initialPath];
+  if (initialSectionId) {
+    window.addEventListener('DOMContentLoaded', function() {
+      var target = document.getElementById(initialSectionId);
+      if (target) {
+        setTimeout(function() {
+          target.scrollIntoView({ behavior: 'instant', block: 'start' });
+        }, 50);
+      }
+    });
+  }
+
+  // Active nav highlighting + URL update on scroll
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   var sections = [];
   navLinks.forEach(function(link) {
@@ -509,7 +541,7 @@ if (leadForm) {
     if (target) sections.push({ el: target, link: link });
   });
 
-  var currentHash = '';
+  var currentPath = window.location.pathname;
 
   function updateActiveNav() {
     var scrollPos = window.scrollY + 120;
@@ -522,15 +554,14 @@ if (leadForm) {
 
     if (activeSection) {
       activeSection.link.classList.add('nav-active');
-      var hash = activeSection.link.getAttribute('href');
-      if (hash !== currentHash) {
-        currentHash = hash;
-        history.replaceState(null, '', hash);
+      var newPath = sectionToPath[activeSection.el.id] || '/';
+      if (newPath !== currentPath) {
+        currentPath = newPath;
+        history.replaceState(null, '', newPath);
       }
-    } else if (window.scrollY < 80 && currentHash !== '') {
-      // Back at top — clear the hash
-      currentHash = '';
-      history.replaceState(null, '', window.location.pathname);
+    } else if (window.scrollY < 80 && currentPath !== '/') {
+      currentPath = '/';
+      history.replaceState(null, '', '/');
     }
   }
 

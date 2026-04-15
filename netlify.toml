@@ -19,6 +19,27 @@
   to = "/podcast.html"
   status = 200
 
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+
+# SPA catch-all — serve index.html for all section paths, keep clean URL
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 # Force fresh favicon (no long cache)
 [[headers]]
   for = "/favicon.ico"
