@@ -1249,6 +1249,17 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
 }
 
+.pricing-single-session {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.pricing-single-session strong {
+  color: var(--text-primary);
+}
+
 .pricing-context {
   margin-top: 32px;
   padding: 24px;
