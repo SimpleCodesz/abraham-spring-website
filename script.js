@@ -500,7 +500,7 @@ if (leadForm) {
   }
 })();
 
-// ===== ACTIVE NAV HIGHLIGHTING =====
+// ===== ACTIVE NAV HIGHLIGHTING + URL HASH UPDATE =====
 (function() {
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   var sections = [];
@@ -509,14 +509,29 @@ if (leadForm) {
     if (target) sections.push({ el: target, link: link });
   });
 
+  var currentHash = '';
+
   function updateActiveNav() {
     var scrollPos = window.scrollY + 120;
-    var activeLink = null;
+    var activeSection = null;
     sections.forEach(function(s) {
-      if (s.el.offsetTop <= scrollPos) activeLink = s.link;
+      if (s.el.offsetTop <= scrollPos) activeSection = s;
     });
+
     navLinks.forEach(function(l) { l.classList.remove('nav-active'); });
-    if (activeLink) activeLink.classList.add('nav-active');
+
+    if (activeSection) {
+      activeSection.link.classList.add('nav-active');
+      var hash = activeSection.link.getAttribute('href');
+      if (hash !== currentHash) {
+        currentHash = hash;
+        history.replaceState(null, '', hash);
+      }
+    } else if (window.scrollY < 80 && currentHash !== '') {
+      // Back at top — clear the hash
+      currentHash = '';
+      history.replaceState(null, '', window.location.pathname);
+    }
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
