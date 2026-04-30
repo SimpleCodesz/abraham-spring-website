@@ -271,28 +271,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ===== TIER PRE-SELECTION =====
-function preselectTier(tierName) {
-  const tierRadio = document.querySelector('input[name="tier-interest"][value="' + tierName + '"]');
-  const tierHidden = document.getElementById('tierField');
-  if (tierRadio) tierRadio.checked = true;
-  if (tierHidden) tierHidden.value = tierName;
-}
-
-// Pricing tier buttons → scroll to form + pre-select tier
-document.querySelectorAll('[data-tier]').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const tier = this.dataset.tier;
-    preselectTier(tier);
-    const formSection = document.getElementById('apply-form');
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// ===== APPLICATION FORM — AJAX SUBMISSION =====
+// ===== RESEARCH QUESTIONNAIRE — AJAX SUBMISSION =====
 const applicationForm = document.getElementById('applicationForm');
 const formSuccess = document.getElementById('formSuccess');
 
@@ -314,24 +293,23 @@ if (applicationForm) {
     .then(function(response) {
       if (response.ok) {
         if (typeof gtag === 'function') {
-          var tier = formData.get('tier-interest') || 'unknown';
-          gtag('event', 'application_submit', { tier: tier });
+          gtag('event', 'questionnaire_submit', {});
         }
         window.location.href = '/thank-you';
       } else {
         if (submitBtn) {
-          submitBtn.innerHTML = 'Submit Application <span class="btn-arrow">&rsaquo;</span>';
+          submitBtn.innerHTML = 'Send my answers <span class="btn-arrow">&rsaquo;</span>';
           submitBtn.disabled = false;
         }
-        alert('There was an issue submitting your application. Please try again or email welcome@unbrokenclub.com directly.');
+        alert('There was an issue sending your answers. Please try again or email welcome@unbrokenclub.com directly.');
       }
     })
     .catch(function() {
       if (submitBtn) {
-        submitBtn.innerHTML = 'Submit Application <span class="btn-arrow">&rsaquo;</span>';
+        submitBtn.innerHTML = 'Send my answers <span class="btn-arrow">&rsaquo;</span>';
         submitBtn.disabled = false;
       }
-      alert('There was an issue submitting your application. Please try again or email welcome@unbrokenclub.com directly.');
+      alert('There was an issue sending your answers. Please try again or email welcome@unbrokenclub.com directly.');
     });
   });
 }
@@ -468,7 +446,7 @@ if (leadForm) {
 (function() {
   var stickyCta = document.getElementById('stickyCta');
   var hero = document.querySelector('.hero');
-  var applyForm = document.getElementById('apply-form');
+  var applyForm = document.getElementById('research');
   if (!stickyCta || !hero) return;
 
   var stickyObserver = new IntersectionObserver(function(entries) {
@@ -620,20 +598,12 @@ if (leadForm) {
   if (typeof gtag !== 'function') return;
 
   // Track "Book a Discovery Call" / "Apply Now" CTA clicks
-  document.querySelectorAll('.nav-cta, .sticky-cta-btn, .btn-primary[href="#apply-form"], .hero-ctas .btn-primary').forEach(function(btn) {
+  document.querySelectorAll('.nav-cta, .sticky-cta-btn, .btn-primary[href="#research"], .hero-ctas .btn-primary').forEach(function(btn) {
     btn.addEventListener('click', function() {
       gtag('event', 'cta_click', {
         cta_text: this.textContent.trim(),
         cta_location: this.closest('nav') ? 'navbar' : this.closest('.sticky-cta') ? 'sticky_bar' : this.closest('.hero') ? 'hero' : 'page'
       });
-    });
-  });
-
-  // Track pricing tier clicks
-  document.querySelectorAll('.pricing-cta').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var tier = this.dataset.tier || 'unknown';
-      gtag('event', 'pricing_click', { tier: tier.trim() });
     });
   });
 
