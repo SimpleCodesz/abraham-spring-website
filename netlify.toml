@@ -34,6 +34,27 @@
   to = "/thank-you.html"
   status = 200
 
+# Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
+[[redirects]]
+  from = "/pricing"
+  to = "/#research"
+  status = 301
+
+[[redirects]]
+  from = "/membership"
+  to = "/#research"
+  status = 301
+
+[[redirects]]
+  from = "/apply"
+  to = "/#research"
+  status = 301
+
+[[redirects]]
+  from = "/apply-form"
+  to = "/#research"
+  status = 301
+
 # SPA catch-all — serve index.html for all section paths, keep clean URL
 [[redirects]]
   from = "/*"
