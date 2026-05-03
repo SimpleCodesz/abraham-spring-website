@@ -153,7 +153,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-const revealElements = document.querySelectorAll('section:not(.hero):not(.stats-bar), .philosophy-quote, .problem-card, .race-card, .coaching-card, .testimonial-card, .blog-card, .pricing-card-v2, .faq-group, .about-grid, .apply-card, .form-card, .lead-magnet-card');
+const revealElements = document.querySelectorAll('section:not(.hero):not(.stats-bar), .philosophy-quote, .problem-card, .race-card, .coaching-card, .testimonial-card, .blog-card, .faq-group, .about-grid, .apply-card, .form-card, .sarah-hook-card');
 revealElements.forEach(el => {
   el.classList.add('scroll-reveal');
   revealObserver.observe(el);
@@ -314,49 +314,33 @@ if (applicationForm) {
   });
 }
 
-// ===== LEAD MAGNET FORM — AJAX SUBMISSION =====
-const leadForm = document.getElementById('leadMagnetForm');
-const leadSuccess = document.getElementById('leadMagnetSuccess');
-
-if (leadForm) {
-  leadForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const submitBtn = this.querySelector('.lead-magnet-btn');
-    if (submitBtn) {
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled = true;
-    }
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(function(response) {
-      if (response.ok) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'lead_magnet_submit', { form: 'recovery_assessment' });
-        }
-        leadForm.style.display = 'none';
-        leadSuccess.style.display = 'block';
-      } else {
-        if (submitBtn) {
-          submitBtn.innerHTML = 'Get the Assessment <span class="btn-arrow">&rsaquo;</span>';
-          submitBtn.disabled = false;
-        }
-        alert('There was an issue. Please try again.');
-      }
-    })
-    .catch(function() {
-      if (submitBtn) {
-        submitBtn.innerHTML = 'Get the Assessment <span class="btn-arrow">&rsaquo;</span>';
-        submitBtn.disabled = false;
-      }
-      alert('There was an issue. Please try again.');
-    });
+// ===== SPECULAR HIGHLIGHT (cursor-tracking, Stripe pattern) =====
+document.querySelectorAll('.specular').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
   });
-}
+});
+
+// ===== WORD-BY-WORD REVEAL (Apple Intelligence pattern) =====
+(function() {
+  var paras = document.querySelectorAll('.reveal-words');
+  if (!paras.length) return;
+  paras.forEach(function(p) {
+    var words = p.textContent.trim().split(/\s+/);
+    p.innerHTML = words.map(function(w) {
+      return '<span class="word-reveal">' + w + '</span>';
+    }).join(' ');
+  });
+  var spans = document.querySelectorAll('.word-reveal');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('lit');
+    });
+  }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
+  spans.forEach(function(s) { io.observe(s); });
+})();
 
 // ===== EMAIL SIGNUP POPUP (15s delay) =====
 (function() {
