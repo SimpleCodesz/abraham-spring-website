@@ -2607,39 +2607,62 @@ h2.section-title-lg {
   line-height: 1.5;
 }
 
-/* 6. Sarah hook callout band */
+/* 6. Sarah hook — dark inverse band with copper edge */
 .sarah-hook {
-  padding: 56px 0;
+  padding: 80px 16px;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%,
+      rgba(196, 122, 42, 0.10) 0%,
+      transparent 70%),
+    #0E0F12;
   position: relative;
+  overflow: hidden;
 }
+.sarah-hook::before,
+.sarah-hook::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(196, 122, 42, 0.35) 30%,
+    rgba(196, 122, 42, 0.35) 70%,
+    transparent 100%);
+}
+.sarah-hook::before { top: 0; }
+.sarah-hook::after  { bottom: 0; }
 .sarah-hook-card {
-  max-width: 880px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 28px 40px;
-  background: rgba(255, 255, 255, 0.025);
-  border-radius: 18px;
+  padding: 0;
   text-align: center;
+  background: transparent;
+  border-radius: 0;
 }
+.sarah-hook-card::before { display: none; }
 .sarah-hook-card .hook-line {
   font-family: var(--font-display, 'DM Serif Display'), Georgia, serif;
-  font-size: clamp(20px, 2.4vw, 28px);
+  font-size: clamp(22px, 2.8vw, 34px);
   line-height: 1.25;
-  color: var(--text-on-dark);
-  margin: 0 0 10px;
-  letter-spacing: -0.01em;
+  color: #F5F5F7;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
 }
 .sarah-hook-card .hook-sub {
-  font-size: 15px;
-  color: var(--text-on-dark-sub);
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: rgba(245, 245, 247, 0.62);
   margin: 0;
   letter-spacing: 0.01em;
+  line-height: 1.55;
 }
 .sarah-hook-card .hook-sub strong {
   color: var(--accent);
   font-weight: 500;
 }
 @media (max-width: 640px) {
-  .sarah-hook-card { padding: 24px 22px; }
+  .sarah-hook { padding: 56px 16px; }
 }
 
 /* 7. Quiet inline link (for proof-section CTAs) */
