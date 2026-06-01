@@ -55,6 +55,74 @@
   to = "/#research"
   status = 301
 
+# ── Duplicate blog posts → canonical home on unbrokenclub.com ──────────
+# These 6 posts also live on unbrokenclub.com. To stop the two sites
+# competing in Google ("alternate page with proper canonical tag") and to
+# consolidate authority on unbrokenclub.com, 301 each duplicate (both the
+# clean and .html URL) to its unbrokenclub.com version. force=true so the
+# redirect wins over the local file. Unique posts (it-band-syndrome,
+# running-biomechanics-assessment, training-with-chronic-pain) are left alone.
+[[redirects]]
+  from = "/blog/adhd-system-not-flaw"
+  to = "https://unbrokenclub.com/blog/adhd-system-not-flaw.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/adhd-system-not-flaw.html"
+  to = "https://unbrokenclub.com/blog/adhd-system-not-flaw.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/caffeine-recovery-debt"
+  to = "https://unbrokenclub.com/blog/caffeine-recovery-debt.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/caffeine-recovery-debt.html"
+  to = "https://unbrokenclub.com/blog/caffeine-recovery-debt.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/motivation-is-a-lie"
+  to = "https://unbrokenclub.com/blog/motivation-is-a-lie.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/motivation-is-a-lie.html"
+  to = "https://unbrokenclub.com/blog/motivation-is-a-lie.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/performance-identity-trap"
+  to = "https://unbrokenclub.com/blog/performance-identity-trap.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/performance-identity-trap.html"
+  to = "https://unbrokenclub.com/blog/performance-identity-trap.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/social-media-biggest-lie"
+  to = "https://unbrokenclub.com/blog/social-media-biggest-lie.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/social-media-biggest-lie.html"
+  to = "https://unbrokenclub.com/blog/social-media-biggest-lie.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/youre-not-lazy"
+  to = "https://unbrokenclub.com/blog/youre-not-lazy.html"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/blog/youre-not-lazy.html"
+  to = "https://unbrokenclub.com/blog/youre-not-lazy.html"
+  status = 301
+  force = true
+
 # SPA catch-all — serve index.html for all section paths, keep clean URL
 [[redirects]]
   from = "/*"
