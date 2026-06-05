@@ -577,6 +577,51 @@ document.querySelectorAll('.specular').forEach(function(card) {
   });
 })();
 
+// ===== EXPLORE MEGA MENU =====
+(function() {
+  var trigger = document.getElementById('navExplore');
+  var menu = document.getElementById('megaMenu');
+  if (!trigger || !menu) return;
+  var closeTimer;
+
+  function open() {
+    clearTimeout(closeTimer);
+    menu.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    menu.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+  function scheduleClose() {
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(close, 160);
+  }
+
+  // Click / tap toggles (touch + keyboard)
+  trigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (menu.classList.contains('open')) close(); else open();
+  });
+
+  // Hover affordance (desktop) — grace period bridges the gap to the panel
+  trigger.addEventListener('mouseenter', open);
+  trigger.addEventListener('mouseleave', scheduleClose);
+  menu.addEventListener('mouseenter', function() { clearTimeout(closeTimer); });
+  menu.addEventListener('mouseleave', scheduleClose);
+
+  // Close on link click, Escape, or click outside
+  menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) { close(); trigger.focus(); }
+  });
+  document.addEventListener('click', function(e) {
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(e.target) || trigger.contains(e.target)) return;
+    close();
+  });
+})();
+
 // ===== GA4 CONVERSION EVENTS =====
 (function() {
   if (typeof gtag !== 'function') return;
