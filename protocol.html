@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8VF61J7PK"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G8VF61J7PK');</script>
+
+  <title>Your Protocol Score | Abraham Spring, Recovery-Led Performance</title>
+  <meta name="description" content="Start your protocol. A free 60-second assessment that gives you a Protocol Score (0-100) on where your nervous system and recovery actually are, and the one place to start. By Abraham Spring.">
+  <meta name="author" content="Abraham Spring">
+  <link rel="canonical" href="https://abrahamspring.co.uk/protocol">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Abraham Spring">
+  <meta property="og:title" content="Your Protocol Score | Abraham Spring">
+  <meta property="og:description" content="A free 60-second assessment. Get your Protocol Score (0-100) on where your recovery actually is, and where to start.">
+  <meta property="og:url" content="https://abrahamspring.co.uk/protocol">
+  <meta property="og:image" content="https://abrahamspring.co.uk/assets/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Protocol Score | Abraham Spring">
+  <meta name="twitter:description" content="A free 60-second assessment. Get your Protocol Score and where to start.">
+  <meta name="twitter:image" content="https://abrahamspring.co.uk/assets/og-share.png">
+  <meta name="robots" content="index, follow">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#C47A2A">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet"></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://abrahamspring.co.uk/protocol#webpage", "url": "https://abrahamspring.co.uk/protocol", "name": "Your Protocol Score", "description": "A free assessment that scores where your nervous system and recovery actually are, on a 0-100 Protocol Score, and shows where to start.", "isPartOf": { "@id": "https://abrahamspring.co.uk/#website" }, "about": { "@id": "https://abrahamspring.co.uk/#person" } },
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://abrahamspring.co.uk/" },
+        { "@type": "ListItem", "position": 2, "name": "Your Protocol Score", "item": "https://abrahamspring.co.uk/protocol" }
+      ]}
+    ]
+  }
+  </script>
+
+  <style>
+    .pscore-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .pscore-progress { height: 6px; background: var(--bg-grey); border-radius: 980px; overflow: hidden; margin-bottom: 36px; }
+    .pscore-progress-bar { height: 100%; width: 0; background: var(--accent); border-radius: 980px; transition: width .35s cubic-bezier(.25,.1,.25,1); }
+    .pscore-q { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 34px); font-weight: 600; color: var(--text-primary); line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 28px; }
+    .pscore-opts { display: flex; flex-direction: column; gap: 12px; }
+    .pscore-opt { text-align: left; width: 100%; padding: 18px 22px; border: 1px solid var(--border, #e5e2dc); border-radius: 14px; background: var(--bg-white); color: var(--text-primary); font-size: 16px; font-weight: 500; cursor: pointer; transition: border-color .15s, transform .15s, background .15s; font-family: inherit; }
+    .pscore-opt:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--bg-ivory); }
+    .pscore-step { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 14px; }
+    .pscore-result { text-align: center; }
+    .pscore-number { font-family: var(--font-display); font-size: clamp(64px, 12vw, 110px); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+    .pscore-band { display: inline-block; padding: 6px 16px; border-radius: 980px; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 14px 0 8px; }
+    .pscore-band.green { background: rgba(74,160,90,.14); color: #2f7a44; }
+    .pscore-band.amber { background: rgba(196,122,42,.16); color: var(--accent-hover); }
+    .pscore-band.red { background: rgba(190,60,50,.14); color: #b23b2f; }
+    .pscore-num.green { color: #2f7a44; } .pscore-num.amber { color: var(--accent); } .pscore-num.red { color: #b23b2f; }
+    .pscore-form { display: flex; gap: 12px; max-width: 440px; margin: 28px auto 0; flex-wrap: wrap; justify-content: center; }
+    .pscore-form input[type=email] { flex: 1; min-width: 220px; padding: 15px 18px; border: 1px solid var(--border, #e5e2dc); border-radius: 12px; font-size: 16px; font-family: inherit; }
+    .hidden-step { display: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-pill">
+      <a href="/" class="nav-logo">Abraham Spring</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/live-coaching">Live Coaching</a>
+        <a href="/#who-its-for">Who It's For</a>
+        <a href="/#race">The Framework</a>
+        <a href="/#about" class="nav-divider-after">About</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="nav-right"><a href="/#research" class="nav-cta">Have a coffee with Abraham</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/live-coaching">Live Coaching</a>
+    <a href="/#who-its-for">Who It's For</a>
+    <a href="/#race">The Framework</a>
+    <a href="/#about">About</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#research" class="nav-cta">Have a coffee with Abraham</a>
+  </div>
+
+  <main id="main-content">
+  <section class="coaching">
+    <div class="pscore-wrap">
+
+      <!-- INTRO -->
+      <div id="pscoreIntro" style="text-align:center;">
+        <p class="section-tag" style="text-align:center;">Start your protocol</p>
+        <h1 class="section-title-lg" style="text-align:center; color: var(--text-primary); -webkit-text-fill-color: var(--text-primary);">What's your Protocol Score?</h1>
+        <p class="section-desc" style="max-width:560px; margin: 0 auto 8px;">Sixty seconds. Seven questions. You get a Protocol Score from 0 to 100 on where your nervous system and recovery actually are, and the one place to start. No jargon, no judgement.</p>
+        <div class="hero-ctas" style="justify-content:center; margin-top: 28px;">
+          <button class="btn-primary" id="pscoreBegin" type="button">Begin the assessment <span class="btn-arrow">&rsaquo;</span></button>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="pscoreQuiz" class="hidden-step">
+        <div class="pscore-progress"><div class="pscore-progress-bar" id="pscoreBar"></div></div>
+        <p class="pscore-step" id="pscoreStep"></p>
+        <p class="pscore-q" id="pscoreQ"></p>
+        <div class="pscore-opts" id="pscoreOpts"></div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="pscoreResult" class="hidden-step pscore-result">
+        <p class="section-tag" style="text-align:center;">Your Protocol Score</p>
+        <div class="pscore-number" id="pscoreNum">0</div>
+        <span class="pscore-band" id="pscoreBand"></span>
+        <p class="section-desc" id="pscoreMsg" style="max-width:560px; margin: 12px auto 0;"></p>
+        <p class="section-desc" id="pscoreSeg" style="max-width:560px; margin: 16px auto 0; font-weight:600;"></p>
+        <form name="protocol-score" method="POST" data-netlify="true" action="/thank-you" class="pscore-form">
+          <input type="hidden" name="form-name" value="protocol-score">
+          <input type="hidden" name="protocol-score" id="pscoreHidden" value="">
+          <input type="hidden" name="profile" id="psegHidden" value="">
+          <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+          <button class="btn-primary" type="submit">Send me where to start <span class="btn-arrow">&rsaquo;</span></button>
+        </form>
+        <p class="section-desc" style="font-size:14px; margin-top:14px;">Abraham reads every one and sends back your starting point. No spam, ever. Prefer to talk? <a href="/#research">Have a coffee</a>.</p>
+      </div>
+
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Coaching</h4><a href="/live-coaching"><span class="footer-arrow">&rsaquo;</span> Live Coaching</a><a href="/#who-its-for"><span class="footer-arrow">&rsaquo;</span> Who it's for</a><a href="/#race"><span class="footer-arrow">&rsaquo;</span> The Framework</a><a href="/#research"><span class="footer-arrow">&rsaquo;</span> Have a coffee</a></div>
+        <div class="footer-col"><h4>Other work</h4><a href="https://www.amazon.co.uk/Unbroken-Protocol-Foundation-Recovery-Led-Grounded-ebook/dp/B0G5M1TKYQ" target="_blank" rel="noopener"><span class="footer-arrow">&rsaquo;</span> The Book</a><a href="https://www.unbrokenclub.com" target="_blank" rel="noopener"><span class="footer-arrow">&rsaquo;</span> The Unbroken Protocol</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="https://www.instagram.com/abrahamspring_/" target="_blank" rel="noopener"><span class="footer-arrow">&rsaquo;</span> Instagram</a><a href="https://substack.com/@abraham2spring" target="_blank" rel="noopener"><span class="footer-arrow">&rsaquo;</span> Substack</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Abraham Spring. The Unbroken Protocol&trade; and R.A.C.E. Framework&trade; are trademarks of Abraham Spring.</p><p class="footer-legal-links"><a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a></p></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function(){
+    var Q = [
+      { q:"How do you sleep, honestly?", opts:[
+        {t:"Deep and restorative most nights",p:3},{t:"Okay, but never quite enough",p:2},{t:"Broken, restless, or light",p:1},{t:"I wake up tired no matter what",p:0}]},
+      { q:"Your energy through the day?", opts:[
+        {t:"Steady and reliable",p:3},{t:"Dips, but I manage",p:2},{t:"Crashes by the afternoon",p:1},{t:"Running on fumes most days",p:0}]},
+      { q:"Can you rest without guilt?", opts:[
+        {t:"Yes, I recover well",p:3},{t:"Sometimes",p:2},{t:"Rarely, rest makes me restless",p:1},{t:"Never, stopping feels like failing",p:0}]},
+      { q:"How consistent is your training or routine?", opts:[
+        {t:"Rock solid",p:3},{t:"Mostly there",p:2},{t:"I start strong, then fall off",p:1},{t:"All or nothing, usually nothing",p:0}]},
+      { q:"Does your plan survive real life?", opts:[
+        {t:"Always, it bends and holds",p:3},{t:"Usually",p:2},{t:"It breaks when life gets messy",p:1},{t:"One bad week and it's gone",p:0}]},
+      { q:"Wired but tired? Can you switch off?", opts:[
+        {t:"Rarely an issue",p:3},{t:"Sometimes",p:2},{t:"Often, my mind races",p:1},{t:"Constantly, I can't come down",p:0}]},
+      { q:"Which sounds most like you?", seg:true, opts:[
+        {t:"An executive or founder running on empty",s:"executive"},{t:"A parent with nothing left at the end of the day",s:"parent"},{t:"An athlete chasing consistency",s:"athlete"},{t:"A high performer quietly burnt out",s:"highperformer"}]}
+    ];
+    var SEG = {
+      executive: { label:"the executive on empty", url:"/executive-burnout-coaching" },
+      parent: { label:"the exhausted parent", url:"/coaching-for-parents" },
+      athlete: { label:"the inconsistent athlete", url:"/athlete-consistency" },
+      highperformer: { label:"the high performer hiding burnout", url:"/high-performer-burnout" }
+    };
+    var i=0, score=0, seg="highperformer";
+    var intro=document.getElementById('pscoreIntro'), quiz=document.getElementById('pscoreQuiz'), result=document.getElementById('pscoreResult');
+    function render(){
+      var item=Q[i];
+      document.getElementById('pscoreStep').textContent='Question '+(i+1)+' of '+Q.length;
+      document.getElementById('pscoreBar').style.width=((i)/Q.length*100)+'%';
+      document.getElementById('pscoreQ').textContent=item.q;
+      var box=document.getElementById('pscoreOpts'); box.innerHTML='';
+      item.opts.forEach(function(o){
+        var b=document.createElement('button'); b.type='button'; b.className='pscore-opt scroll-reveal revealed'; b.textContent=o.t;
+        b.addEventListener('click',function(){
+          if(item.seg){ seg=o.s; } else { score+=o.p; }
+          i++; if(i<Q.length){ render(); } else { finish(); }
+          window.scrollTo({top:0,behavior:'smooth'});
+        });
+        box.appendChild(b);
+      });
+    }
+    function finish(){
+      var pct=Math.round(score/18*100);
+      var band, cls, msg;
+      if(pct>=70){ band='Strong foundation'; cls='green'; msg="Your foundation is solid. The work now is sharpening the edge, not rebuilding the base. There is real performance to unlock here."; }
+      else if(pct>=40){ band='Fraying at the edges'; cls='amber'; msg="You are holding it together, but the foundation is fraying. This is the moment to fix it, before a bad block or a hard quarter turns it into a breakdown."; }
+      else { band='Running in the red'; cls='red'; msg="You are running in the red. This is exactly where recovery-led coaching starts, and exactly why pushing harder has not worked. The answer was never more."; }
+      quiz.classList.add('hidden-step'); result.classList.remove('hidden-step');
+      var numEl=document.getElementById('pscoreNum'); numEl.className='pscore-number pscore-num '+cls;
+      var bandEl=document.getElementById('pscoreBand'); bandEl.className='pscore-band '+cls; bandEl.textContent=band;
+      document.getElementById('pscoreMsg').textContent=msg;
+      var s=SEG[seg];
+      var segEl=document.getElementById('pscoreSeg'); segEl.innerHTML='Sounds like you: '+s.label+'. <a href="'+s.url+'">See how the protocol fits you &rsaquo;</a>';
+      document.getElementById('pscoreHidden').value=pct;
+      document.getElementById('psegHidden').value=seg;
+      // count up
+      var n=0; var step=Math.max(1,Math.round(pct/30)); var t=setInterval(function(){ n+=step; if(n>=pct){ n=pct; clearInterval(t); } numEl.textContent=n; },28);
+    }
+    var begin=document.getElementById('pscoreBegin');
+    if(begin){ begin.addEventListener('click',function(){ intro.classList.add('hidden-step'); quiz.classList.remove('hidden-step'); render(); }); }
+  })();
+  </script>
+  <script>requestAnimationFrame(function(){document.querySelectorAll('.scroll-reveal:not(.revealed)').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight){el.style.transition='none';el.classList.add('revealed');}});});</script>
+</body>
+</html>
