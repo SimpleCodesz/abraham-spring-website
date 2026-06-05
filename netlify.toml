@@ -64,6 +64,16 @@
   to = "/protocol.html"
   status = 200
 
+[[redirects]]
+  from = "/nervous-system"
+  to = "/nervous-system.html"
+  status = 200
+
+[[redirects]]
+  from = "/adhd-coaching"
+  to = "/adhd-coaching.html"
+  status = 200
+
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
