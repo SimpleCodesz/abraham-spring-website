@@ -34,6 +34,11 @@
   to = "/thank-you.html"
   status = 200
 
+[[redirects]]
+  from = "/live-coaching"
+  to = "/live-coaching.html"
+  status = 200
+
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
