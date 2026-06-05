@@ -74,6 +74,16 @@
   to = "/adhd-coaching.html"
   status = 200
 
+[[redirects]]
+  from = "/breathwork"
+  to = "/breathwork.html"
+  status = 200
+
+[[redirects]]
+  from = "/meditation"
+  to = "/meditation.html"
+  status = 200
+
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
