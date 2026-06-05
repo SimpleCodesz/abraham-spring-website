@@ -84,6 +84,26 @@
   to = "/meditation.html"
   status = 200
 
+[[redirects]]
+  from = "/strength-conditioning"
+  to = "/strength-conditioning.html"
+  status = 200
+
+[[redirects]]
+  from = "/triathlon-coaching"
+  to = "/triathlon-coaching.html"
+  status = 200
+
+[[redirects]]
+  from = "/boxing"
+  to = "/boxing.html"
+  status = 200
+
+[[redirects]]
+  from = "/nutrition"
+  to = "/nutrition.html"
+  status = 200
+
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
