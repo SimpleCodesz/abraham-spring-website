@@ -39,6 +39,26 @@
   to = "/live-coaching.html"
   status = 200
 
+[[redirects]]
+  from = "/executive-burnout-coaching"
+  to = "/executive-burnout-coaching.html"
+  status = 200
+
+[[redirects]]
+  from = "/coaching-for-parents"
+  to = "/coaching-for-parents.html"
+  status = 200
+
+[[redirects]]
+  from = "/athlete-consistency"
+  to = "/athlete-consistency.html"
+  status = 200
+
+[[redirects]]
+  from = "/high-performer-burnout"
+  to = "/high-performer-burnout.html"
+  status = 200
+
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
