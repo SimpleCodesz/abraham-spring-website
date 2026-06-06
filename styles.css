@@ -129,8 +129,6 @@ img { max-width: 100%; display: block; }
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   gap: 0;
   overflow: hidden;
-  position: relative;
-  z-index: 2;
 }
 
 .nav-logo {
@@ -284,46 +282,31 @@ img { max-width: 100%; display: block; }
 }
 .nav-explore-trigger[aria-expanded="true"] .caret { transform: rotate(180deg); }
 
-/* Apple-style full-width black flyout */
+/* Independent rounded flyout card (Apple-style content, site-rounded shell) */
 .mega-menu {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: calc(100% + 10px);
   left: 0;
   right: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.96);
+  background: rgba(14, 14, 16, 0.98);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 96px 0 64px;
-  max-height: 100vh;
-  overflow-y: auto;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  padding: 40px 48px 48px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-12px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-  z-index: 1;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 50;
 }
 .mega-menu.open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-/* Blend the floating pill into the black sheet while the flyout is open */
-.navbar:has(.mega-menu.open) .nav-pill {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
 .mega-inner {
-  width: calc(100% - 32px);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 24px;
-  box-sizing: border-box;
   display: grid;
   grid-template-columns: minmax(320px, 420px) 240px 240px;
   justify-content: start;
