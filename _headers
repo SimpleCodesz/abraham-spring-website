@@ -10,8 +10,13 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# styles.css / script.js are NOT version-fingerprinted, so they must NOT be
+# cached immutable (that froze stale CSS/JS in browsers for up to a year).
+# Revalidate on every load: ETag yields cheap 304s when unchanged, and any
+# deploy is picked up immediately. The ?v= query in the HTML additionally
+# busts caches that were already frozen by the old immutable policy.
 /*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
