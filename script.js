@@ -583,6 +583,7 @@ document.querySelectorAll('.specular').forEach(function(card) {
   var menu = document.getElementById('megaMenu');
   if (!trigger || !menu) return;
   var closeTimer;
+  var lastPointerType = '';
 
   function open() {
     clearTimeout(closeTimer);
@@ -590,6 +591,7 @@ document.querySelectorAll('.specular').forEach(function(card) {
     trigger.setAttribute('aria-expanded', 'true');
   }
   function close() {
+    clearTimeout(closeTimer);
     menu.classList.remove('open');
     trigger.setAttribute('aria-expanded', 'false');
   }
@@ -598,17 +600,31 @@ document.querySelectorAll('.specular').forEach(function(card) {
     closeTimer = setTimeout(close, 160);
   }
 
-  // Click / tap toggles (touch + keyboard)
-  trigger.addEventListener('click', function(e) {
-    e.preventDefault();
-    if (menu.classList.contains('open')) close(); else open();
+  // Hover opens/closes for MOUSE pointers only (desktop affordance). Checking
+  // pointerType per-event (not device media queries) keeps hybrid touch+mouse
+  // laptops correct.
+  trigger.addEventListener('pointerenter', function(e) {
+    lastPointerType = e.pointerType;
+    if (e.pointerType === 'mouse') open();
+  });
+  trigger.addEventListener('pointerleave', function(e) {
+    if (e.pointerType === 'mouse') scheduleClose();
+  });
+  menu.addEventListener('pointerenter', function(e) {
+    if (e.pointerType === 'mouse') clearTimeout(closeTimer);
+  });
+  menu.addEventListener('pointerleave', function(e) {
+    if (e.pointerType === 'mouse') scheduleClose();
   });
 
-  // Hover affordance (desktop) — grace period bridges the gap to the panel
-  trigger.addEventListener('mouseenter', open);
-  trigger.addEventListener('mouseleave', scheduleClose);
-  menu.addEventListener('mouseenter', function() { clearTimeout(closeTimer); });
-  menu.addEventListener('mouseleave', scheduleClose);
+  // Click toggles for touch + keyboard. For a mouse, hover already manages the
+  // open state, so ignore the mouse click — otherwise it would instantly close
+  // what pointerenter just opened. Keyboard activation reports detail === 0.
+  trigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (e.detail !== 0 && lastPointerType === 'mouse') return;
+    if (menu.classList.contains('open')) close(); else open();
+  });
 
   // Close on link click, Escape, or click outside
   menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
