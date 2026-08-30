@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "updated": "2026-08-30",
+  "market": "United Kingdom",
+  "measurement": {
+    "seRankingProjectId": 12841586,
+    "seRankingSearchEngineId": 357052,
+    "frequency": "daily",
+    "depth": 100,
+    "googleSearchConsole": "verified-direct",
+    "googleAnalyticsPropertyId": 527266759,
+    "googleAnalyticsStatus": "verified-direct-search-console-link-and-key-event-pending",
+    "bingWebmasterTools": "account-session-required"
+  },
+  "guardrails": [
+    "British English throughout.",
+    "Coaching pages must not claim to diagnose, treat or cure medical or mental-health conditions.",
+    "ADHD coaching is performance and systems coaching, not clinical diagnosis or treatment.",
+    "Nervous-system coaching must distinguish coaching practice from clinical care.",
+    "Burnout coaching must direct significant or worsening symptoms to an appropriate healthcare professional.",
+    "Do not invent qualifications, client outcomes, testimonials, scarcity or numerical claims."
+  ],
+  "territories": [
+    {
+      "name": "Burnout coaching",
+      "commercialUrl": "/burnout-coaching",
+      "primaryKeyword": "burnout coaching",
+      "secondaryKeywords": ["burnout coach London", "burnout recovery coach"],
+      "supportingUrls": ["/executive-burnout-coaching", "/high-performer-burnout"],
+      "intent": "commercial",
+      "status": "implemented"
+    },
+    {
+      "name": "Performance coaching",
+      "commercialUrl": "/performance-coaching",
+      "primaryKeyword": "performance coaching",
+      "secondaryKeywords": ["high performance coaching", "performance coach London"],
+      "supportingUrls": ["/live-coaching", "/athlete-consistency"],
+      "intent": "commercial",
+      "status": "implemented"
+    },
+    {
+      "name": "Nervous system coaching",
+      "commercialUrl": "/nervous-system",
+      "primaryKeyword": "nervous system coaching",
+      "secondaryKeywords": ["nervous system coach London", "nervous system regulation"],
+      "supportingUrls": ["/breathwork", "/meditation", "/protocol"],
+      "intent": "mixed-commercial-informational",
+      "status": "optimised"
+    },
+    {
+      "name": "ADHD coaching",
+      "commercialUrl": "/adhd-coaching",
+      "primaryKeyword": "ADHD coach London",
+      "secondaryKeywords": ["ADHD coaching London", "ADHD performance coach"],
+      "supportingUrls": ["/performance-coaching", "/athlete-consistency"],
+      "intent": "commercial",
+      "status": "optimised"
+    },
+    {
+      "name": "Personal training",
+      "commercialUrl": "/personal-training",
+      "primaryKeyword": "personal training London",
+      "secondaryKeywords": ["personal trainer London", "online personal trainer UK"],
+      "supportingUrls": ["/strength-conditioning", "/performance-coaching"],
+      "intent": "commercial",
+      "status": "implemented"
+    },
+    {
+      "name": "Strength and conditioning",
+      "commercialUrl": "/strength-conditioning",
+      "primaryKeyword": "strength and conditioning coaching",
+      "secondaryKeywords": ["strength and conditioning coach London", "strength coach London"],
+      "supportingUrls": ["/personal-training", "/triathlon-coaching"],
+      "intent": "commercial",
+      "status": "optimised"
+    }
+  ],
+  "articleBacklog": [
+    {
+      "territory": "Burnout coaching",
+      "slug": "burnout-recovery-stages",
+      "workingTitle": "Burnout Recovery Stages: What Changes First—and What Takes Longer",
+      "primaryKeyword": "burnout recovery stages",
+      "intent": "informational",
+      "commercialDestination": "/burnout-coaching",
+      "evidenceRequirement": "Primary clinical or public-health sources for definitions; no universal recovery timeline.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Nervous system coaching",
+      "slug": "nervous-system-regulation-exercises",
+      "workingTitle": "Nervous System Regulation Exercises You Can Use Without Turning Recovery Into Work",
+      "primaryKeyword": "nervous system regulation exercises",
+      "intent": "informational",
+      "commercialDestination": "/nervous-system",
+      "evidenceRequirement": "Primary physiology sources; distinguish short-term state change from clinical treatment.",
+      "status": "implemented"
+    },
+    {
+      "territory": "ADHD coaching",
+      "slug": "adhd-coaching-vs-therapy",
+      "workingTitle": "ADHD Coaching vs Therapy: What Each Is For",
+      "primaryKeyword": "ADHD coaching vs therapy",
+      "intent": "comparison",
+      "commercialDestination": "/adhd-coaching",
+      "evidenceRequirement": "Authoritative clinical guidance and explicit scope boundary."
+    },
+    {
+      "territory": "Performance coaching",
+      "slug": "high-performance-without-burnout",
+      "workingTitle": "High Performance Without Burnout: Build Capacity Before You Add Pressure",
+      "primaryKeyword": "high performance without burnout",
+      "intent": "informational-commercial",
+      "commercialDestination": "/performance-coaching",
+      "evidenceRequirement": "Evidence on recovery, workload and performance; no fabricated outcomes."
+    },
+    {
+      "territory": "Strength and conditioning",
+      "slug": "strength-and-conditioning-vs-personal-training",
+      "workingTitle": "Strength and Conditioning vs Personal Training: Which Coaching Do You Need?",
+      "primaryKeyword": "strength and conditioning vs personal training",
+      "intent": "comparison",
+      "commercialDestination": "/strength-conditioning",
+      "evidenceRequirement": "Scope-based comparison; avoid protected-title implications."
+    }
+  ]
+}
