@@ -7,6 +7,8 @@
     "seRankingSearchEngineId": 357052,
     "frequency": "daily",
     "depth": 100,
+    "firstPositionCheck": "2026-08-30",
+    "firstPositionBaseline": "0-of-22-in-top-100-pre-release",
     "googleSearchConsole": "verified-direct",
     "googleAnalyticsPropertyId": 527266759,
     "googleAnalyticsStatus": "verified-direct-search-console-link-and-key-event-pending",
