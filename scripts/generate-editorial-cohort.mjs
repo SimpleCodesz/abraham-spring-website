@@ -12,7 +12,7 @@ const articles = [
     h1: 'What Is ADHD Coaching—and What Should It Actually Help You Do?',
     description: 'ADHD coaching explained clearly: what happens in sessions, what it can support, where its limits sit and how to decide whether it fits your needs.',
     deck: 'ADHD coaching is not another place to be told to try harder. Done well, it helps turn insight into visible systems, smaller decisions and repeatable follow-through.',
-    image: 'adhd-coaching-editorial.webp', alt: 'Two adults having a focused coaching conversation at a calm studio table', destination: '/adhd-coaching', nav: 'ADHD coaching',
+    image: 'adhd-coaching-editorial.webp', alt: 'Abraham Spring running beside the lake at Blenheim Palace', destination: '/adhd-coaching', nav: 'ADHD coaching',
     answerTitle: 'The short answer',
     answer: '<p>ADHD coaching is a collaborative, non-clinical process focused on how you plan, start, prioritise, remember and complete the things that matter. It can help you build external structure around attention and executive-function challenges. It does not diagnose ADHD, prescribe medication or replace psychological or medical care.</p>',
     sections: [
@@ -32,7 +32,7 @@ const articles = [
     h1: 'ADHD Coaching vs Therapy: What Each Is For—and When You May Need Both',
     description: 'A clear ADHD coaching versus therapy comparison covering goals, scope, session focus, clinical boundaries and how the two forms of support can work together.',
     deck: 'The useful question is not which profession “wins”. It is whether your present need is practical implementation, psychological treatment—or a coordinated combination of both.',
-    image: 'adhd-coaching-vs-therapy-editorial.webp', alt: 'An open planner beside an empty conversation chair in a calm room', destination: '/adhd-coaching', nav: 'ADHD coaching',
+    image: 'adhd-coaching-vs-therapy-editorial.webp', alt: 'Abraham Spring riding uphill during the Blenheim Palace Triathlon', destination: '/adhd-coaching', nav: 'ADHD coaching',
     answerTitle: 'Coaching and therapy solve different problems',
     answer: '<p>ADHD coaching usually focuses on present-to-future action: planning, prioritisation, routines, accountability and environmental design. Therapy is delivered by a qualified mental-health professional and can assess and treat psychological distress, trauma, anxiety, depression and other clinical concerns. Some people benefit from both, with clear roles and communication.</p>',
     sections: [
@@ -52,7 +52,7 @@ const articles = [
     h1: 'High Performance Without Burnout: Build Capacity Before You Add Pressure',
     description: 'A recovery-led guide to sustainable high performance: manage demand, protect capacity, design better work and recognise when pressure has become harmful.',
     deck: 'High performance is not the ability to ignore every signal. It is the ability to produce excellent work repeatedly without making exhaustion the admission price.',
-    image: 'high-performance-without-burnout-editorial.webp', alt: 'A composed professional standing beside a London studio window after closing a laptop', destination: '/performance-coaching', nav: 'Performance coaching',
+    image: 'high-performance-without-burnout-editorial.webp', alt: 'Abraham Spring hydrating during the Blenheim Palace Triathlon', destination: '/performance-coaching', nav: 'Performance coaching',
     answerTitle: 'The operating principle',
     answer: '<p>Sustainable high performance requires three things to stay connected: the demand you accept, the capacity you can genuinely access and the recovery that allows adaptation. When demand rises but capacity and recovery do not, performance may look impressive for a while—then become increasingly expensive.</p>',
     sections: [
@@ -72,7 +72,7 @@ const articles = [
     h1: 'What Does a Performance Coach Do—and Is It Different From Life Coaching?',
     description: 'What performance coaching involves, what happens in sessions, how it differs from mentoring and therapy, and how to judge whether a coach is credible.',
     deck: 'A performance coach should not sell you a more impressive identity. The work is to make the gap between what matters and what repeatedly happens smaller.',
-    image: 'performance-coach-editorial.webp', alt: 'A coach and client mapping priorities with cards and a notebook', destination: '/performance-coaching', nav: 'Performance coaching',
+    image: 'performance-coach-editorial.webp', alt: 'Abraham Spring smiling and waving on the Blenheim Palace cycle course', destination: '/performance-coaching', nav: 'Performance coaching',
     answerTitle: 'What the role is',
     answer: '<p>A performance coach helps a person clarify outcomes, examine the patterns affecting delivery, design practical changes and review evidence from real life. The focus may include work, leadership, training, recovery and decision-making. Coaching is non-clinical and should not replace healthcare, therapy or specialist technical advice.</p>',
     sections: [
@@ -92,7 +92,7 @@ const articles = [
     h1: 'What Is Strength and Conditioning—and Who Is It Actually For?',
     description: 'Strength and conditioning explained: how training is assessed, programmed and progressed for performance, resilience and real-world physical capacity.',
     deck: 'Strength and conditioning is not a collection of hard exercises. It is the deliberate use of training, adaptation and recovery to prepare a person for a demand.',
-    image: 'strength-conditioning-editorial.webp', alt: 'An athlete performing a controlled cable exercise in a bright training studio', destination: '/strength-conditioning', nav: 'Strength & conditioning',
+    image: 'strength-conditioning-editorial.webp', alt: 'An athlete preparing for a strength session in a London gym', destination: '/strength-conditioning', nav: 'Strength & conditioning',
     answerTitle: 'A practical definition',
     answer: '<p>The UK Strength and Conditioning Association defines S&amp;C as the practical application of the science behind coaching, training adaptation and recovery. In practice, that means assessing the person and the demand, selecting appropriate training, progressing it over time and adjusting it according to response.</p>',
     sections: [
@@ -114,7 +114,7 @@ const articles = [
     h1: 'Strength and Conditioning vs Personal Training: Which Coaching Do You Need?',
     description: 'Compare strength and conditioning with personal training by goal, assessment, programming and coaching style so you can choose the right support.',
     deck: 'The titles overlap. The useful difference is the problem being solved, the depth of programming and how closely training is tied to a specific performance demand.',
-    image: 'strength-vs-personal-training-editorial.webp', alt: 'A coach reviewing an individual training plan with a client beside a squat rack', destination: '/strength-conditioning', nav: 'Strength & conditioning',
+    image: 'strength-vs-personal-training-editorial.webp', alt: 'Abraham Spring riding hard during the Blenheim Palace Triathlon', destination: '/strength-conditioning', nav: 'Strength & conditioning',
     answerTitle: 'Choose by the outcome',
     answer: '<p>Personal training is often the better fit for general fitness, confidence, consistency and individual support. Strength and conditioning is usually more performance-led: it connects assessment, programming, adaptation and recovery to the demands of a sport or physically demanding goal. A coach may competently deliver both.</p>',
     sections: [
@@ -136,7 +136,7 @@ const articles = [
     h1: 'How Much Does Personal Training Cost in London—and What Are You Paying For?',
     description: 'A transparent guide to London personal-training costs, the factors that affect price, package questions to ask and how to judge value before you commit.',
     deck: 'A session price is easy to compare. Coaching quality is harder. The real question is what assessment, preparation, programming and follow-through sit behind the hour.',
-    image: 'personal-training-cost-london-editorial.webp', alt: 'A training notebook, stopwatch and water bottle beside a London studio window', destination: '/personal-training', nav: 'Personal training',
+    image: 'personal-training-cost-london-editorial.webp', alt: 'Abraham Spring climbing on the bike at Blenheim Palace', destination: '/personal-training', nav: 'Personal training',
     answerTitle: 'Why there is no single London price',
     answer: '<p>Personal-training prices vary according to location, coach experience, facility costs, session length, frequency and whether the service includes assessment, programme design and support between sessions. Ask for the complete cost and service before comparing. The lowest session fee is not always the lowest cost per useful outcome.</p>',
     sections: [
@@ -156,7 +156,7 @@ const articles = [
     h1: 'How Does Online Personal Training Work—and Who Is It Best For?',
     description: 'How online personal training works from assessment to programming, video feedback and reviews, plus the questions to ask before choosing a coach.',
     deck: 'Online coaching is not a PDF sent once a month. At its best, it is a living programme, a clear feedback loop and enough support to make independent training work.',
-    image: 'online-personal-training-editorial.webp', alt: 'An athlete performing a coached dumbbell exercise beside a laptop in a home studio', destination: '/personal-training', nav: 'Personal training',
+    image: 'online-personal-training-editorial.webp', alt: 'An athlete preparing to train in a London gym', destination: '/personal-training', nav: 'Personal training',
     answerTitle: 'The basic model',
     answer: '<p>Online personal training typically combines an initial consultation, a programme delivered digitally, exercise guidance, regular check-ins and adjustments based on feedback. Some services add live video sessions or technique review. The quality depends on the assessment and feedback loop—not the app used to deliver it.</p>',
     sections: [
@@ -176,7 +176,7 @@ const articles = [
     h1: 'Am I Burnt Out—or Just Tired? Signs, Context and What to Do Next',
     description: 'A grounded guide to burnout signs, how burnout differs from ordinary tiredness, what else symptoms may mean and practical next steps for support.',
     deck: 'One exhausted week does not define you. But when rest stops restoring you, distance from work grows and your sense of effectiveness shrinks, the pattern deserves attention.',
-    image: 'am-i-burnt-out-editorial.webp', alt: 'A professional sitting reflectively at a table before the working day begins', destination: '/burnout-coaching', nav: 'Burnout coaching',
+    image: 'am-i-burnt-out-editorial.webp', alt: 'Abraham Spring running with support during the Blenheim Palace Triathlon', destination: '/burnout-coaching', nav: 'Burnout coaching',
     answerTitle: 'The pattern to notice',
     answer: '<p>WHO describes burnout through three occupational dimensions: exhaustion, increasing mental distance or cynicism towards work, and reduced professional efficacy. It is not classified as a medical condition. If symptoms are significant, persistent or worsening, seek appropriate healthcare support because other physical and mental-health conditions can look similar.</p>',
     sections: [
@@ -196,7 +196,7 @@ const articles = [
     h1: 'Signs of Nervous System Dysregulation—and What They Can and Cannot Tell You',
     description: 'A grounded guide to nervous-system dysregulation signs, common activation and shutdown patterns, practical tracking and when to seek clinical help.',
     deck: '“Dysregulated” is often used as though it were a diagnosis. It is more useful as plain language for a pattern: your state does not shift with the flexibility the situation needs.',
-    image: 'nervous-system-dysregulation-editorial.webp', alt: 'A person seated by a window noticing their breathing and physical state', destination: '/nervous-system', nav: 'Nervous system coaching',
+    image: 'nervous-system-dysregulation-editorial.webp', alt: 'A focused close portrait of Abraham Spring before training', destination: '/nervous-system', nav: 'Nervous system coaching',
     answerTitle: 'What people usually mean',
     answer: '<p>Nervous-system dysregulation is not a single formal diagnosis. People often use the phrase to describe persistent over-activation, under-activation or rapid movement between the two. Signs can include restlessness, tension, racing thoughts, numbness, fatigue, shutdown or difficulty recovering after stress—but these experiences can have many causes.</p>',
     sections: [
