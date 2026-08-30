@@ -6,6 +6,7 @@ const ownership = JSON.parse(await readFile(path.join(root, 'seo/ownership.json'
 const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
 const redirects = await readFile(path.join(root, 'netlify.toml'), 'utf8');
 const failures = [];
+const redirectSources = new Set([...redirects.matchAll(/from\s*=\s*"([^"]+)"/g)].map((match) => match[1]));
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
@@ -21,6 +22,27 @@ async function collectHtml(directory) {
     if (entry.isFile() && entry.name.endsWith('.html')) files.push(absolute);
   }
   return files;
+}
+
+async function localRouteExists(route) {
+  const cleanRoute = route.split(/[?#]/, 1)[0];
+  if (!cleanRoute || cleanRoute === '/') return true;
+  if (redirectSources.has(cleanRoute)) return true;
+
+  const relative = cleanRoute.replace(/^\//, '');
+  const candidates = cleanRoute.endsWith('/')
+    ? [path.join(relative, 'index.html')]
+    : [relative, `${relative}.html`, path.join(relative, 'index.html')];
+
+  for (const candidate of candidates) {
+    try {
+      await access(path.join(root, candidate));
+      return true;
+    } catch {
+      // Try the next clean-URL or exact-file candidate.
+    }
+  }
+  return false;
 }
 
 for (const territory of ownership.territories) {
@@ -91,7 +113,8 @@ try {
   failures.push('Missing 404.html after removing the catch-all rewrite');
 }
 
-for (const filepath of await collectHtml(root)) {
+const htmlFiles = await collectHtml(root);
+for (const filepath of htmlFiles) {
   const relative = path.relative(root, filepath);
   const html = await readFile(filepath, 'utf8');
   expect((html.match(/<title>/gi) ?? []).length === 1, `${relative}: expected exactly one title tag`);
@@ -102,6 +125,16 @@ for (const filepath of await collectHtml(root)) {
       failures.push(`${relative}: invalid JSON-LD (${error.message})`);
     }
   }
+
+  const internalLinks = [...html.matchAll(/href\s*=\s*["'](\/[^"']*)["']/gi)].map((match) => match[1]);
+  for (const href of new Set(internalLinks)) {
+    expect(await localRouteExists(href), `${relative}: internal link has no page or redirect (${href})`);
+  }
+}
+
+for (const match of sitemap.matchAll(/<loc>https:\/\/abrahamspring\.co\.uk([^<]*)<\/loc>/g)) {
+  const route = match[1] || '/';
+  expect(await localRouteExists(route), `sitemap.xml: URL has no local page or redirect (${route})`);
 }
 
 if (failures.length) {
