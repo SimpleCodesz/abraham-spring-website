@@ -13,6 +13,24 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://abrahamspring.co.uk/performance-coaching</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrahamspring.co.uk/burnout-coaching</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrahamspring.co.uk/personal-training</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://abrahamspring.co.uk/protocol</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -20,13 +38,13 @@
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/nervous-system</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/adhd-coaching</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,7 +62,7 @@
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/strength-conditioning</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -68,7 +86,7 @@
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/executive-burnout-coaching</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -86,14 +104,26 @@
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/high-performer-burnout</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://abrahamspring.co.uk/blog/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrahamspring.co.uk/blog/burnout-recovery-stages</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrahamspring.co.uk/blog/nervous-system-regulation-exercises</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -125,17 +155,5 @@
     <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://abrahamspring.co.uk/privacy</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://abrahamspring.co.uk/terms</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 </urlset>

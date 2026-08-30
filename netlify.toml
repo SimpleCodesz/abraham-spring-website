@@ -40,6 +40,21 @@
   status = 200
 
 [[redirects]]
+  from = "/performance-coaching"
+  to = "/performance-coaching.html"
+  status = 200
+
+[[redirects]]
+  from = "/burnout-coaching"
+  to = "/burnout-coaching.html"
+  status = 200
+
+[[redirects]]
+  from = "/personal-training"
+  to = "/personal-training.html"
+  status = 200
+
+[[redirects]]
   from = "/executive-burnout-coaching"
   to = "/executive-burnout-coaching.html"
   status = 200
@@ -125,6 +140,27 @@
   to = "/#research"
   status = 301
 
+# Legacy URLs still receiving Google impressions
+[[redirects]]
+  from = "/contact"
+  to = "/#research"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/#about"
+  status = 301
+
+[[redirects]]
+  from = "/store"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/blog-1-1/sleep"
+  to = "/nervous-system"
+  status = 301
+
 # ── Duplicate blog posts → canonical home on unbrokenclub.com ──────────
 # These 6 posts also live on unbrokenclub.com. To stop the two sites
 # competing in Google ("alternate page with proper canonical tag") and to
@@ -192,12 +228,6 @@
   to = "https://unbrokenclub.com/blog/youre-not-lazy.html"
   status = 301
   force = true
-
-# SPA catch-all — serve index.html for all section paths, keep clean URL
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
 
 # Force fresh favicon (no long cache)
 [[headers]]
