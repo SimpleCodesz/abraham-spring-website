@@ -1,14 +1,14 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --accent: #C47A2A;
-  --accent-hover: #A8661F;
+  --accent: #8A4B14;
+  --accent-hover: #703A0D;
   --teal: #1A6B6A;
   --paper: #F7F6F2;
   --paper-warm: #ECE9E2;
   --ink: #1D1D1F;
   --copy: #505054;
-  --muted: #747478;
+  --muted: #626268;
   --line: rgba(29, 29, 31, .12);
   --card: rgba(255, 255, 255, .78);
   --dark: #1D1D1F;
@@ -31,14 +31,14 @@ body.editorial-page {
 }
 
 body.editorial-page[data-theme="nervous-system"] {
-  --theme-accent: #C47A2A;
-  --theme-accent-rgb: 196, 122, 42;
+  --theme-accent: #8A4B14;
+  --theme-accent-rgb: 138, 75, 20;
   --theme-accent-2: #4E9B97;
 }
 
 body.editorial-page[data-theme="burnout"] {
-  --theme-accent: #B96F2B;
-  --theme-accent-rgb: 185, 111, 43;
+  --theme-accent: #854515;
+  --theme-accent-rgb: 133, 69, 21;
   --theme-accent-2: #8B6F91;
 }
 
