@@ -12,7 +12,10 @@
     "googleSearchConsole": "verified-direct",
     "googleAnalyticsPropertyId": 527266759,
     "googleAnalyticsStatus": "verified-direct-search-console-link-and-key-event-pending",
-    "bingWebmasterTools": "account-session-required"
+    "bingWebmasterTools": "account-session-required",
+    "trackedKeywords": 42,
+    "authorityArticleKeywords": 22,
+    "latestKeywordExpansion": "20 strict UK article keywords added in SE Ranking on 2026-08-30"
   },
   "guardrails": [
     "British English throughout.",
@@ -27,8 +30,14 @@
       "name": "Burnout coaching",
       "commercialUrl": "/burnout-coaching",
       "primaryKeyword": "burnout coaching",
-      "secondaryKeywords": ["burnout coach London", "burnout recovery coach"],
-      "supportingUrls": ["/executive-burnout-coaching", "/high-performer-burnout"],
+      "secondaryKeywords": [
+        "burnout coach London",
+        "burnout recovery coach"
+      ],
+      "supportingUrls": [
+        "/executive-burnout-coaching",
+        "/high-performer-burnout"
+      ],
       "intent": "commercial",
       "status": "implemented"
     },
@@ -36,8 +45,14 @@
       "name": "Performance coaching",
       "commercialUrl": "/performance-coaching",
       "primaryKeyword": "performance coaching",
-      "secondaryKeywords": ["high performance coaching", "performance coach London"],
-      "supportingUrls": ["/live-coaching", "/athlete-consistency"],
+      "secondaryKeywords": [
+        "high performance coaching",
+        "performance coach London"
+      ],
+      "supportingUrls": [
+        "/live-coaching",
+        "/athlete-consistency"
+      ],
       "intent": "commercial",
       "status": "implemented"
     },
@@ -45,8 +60,15 @@
       "name": "Nervous system coaching",
       "commercialUrl": "/nervous-system",
       "primaryKeyword": "nervous system coaching",
-      "secondaryKeywords": ["nervous system coach London", "nervous system regulation"],
-      "supportingUrls": ["/breathwork", "/meditation", "/protocol"],
+      "secondaryKeywords": [
+        "nervous system coach London",
+        "nervous system regulation"
+      ],
+      "supportingUrls": [
+        "/breathwork",
+        "/meditation",
+        "/protocol"
+      ],
       "intent": "mixed-commercial-informational",
       "status": "optimised"
     },
@@ -54,8 +76,14 @@
       "name": "ADHD coaching",
       "commercialUrl": "/adhd-coaching",
       "primaryKeyword": "ADHD coach London",
-      "secondaryKeywords": ["ADHD coaching London", "ADHD performance coach"],
-      "supportingUrls": ["/performance-coaching", "/athlete-consistency"],
+      "secondaryKeywords": [
+        "ADHD coaching London",
+        "ADHD performance coach"
+      ],
+      "supportingUrls": [
+        "/performance-coaching",
+        "/athlete-consistency"
+      ],
       "intent": "commercial",
       "status": "optimised"
     },
@@ -63,8 +91,14 @@
       "name": "Personal training",
       "commercialUrl": "/personal-training",
       "primaryKeyword": "personal training London",
-      "secondaryKeywords": ["personal trainer London", "online personal trainer UK"],
-      "supportingUrls": ["/strength-conditioning", "/performance-coaching"],
+      "secondaryKeywords": [
+        "personal trainer London",
+        "online personal trainer UK"
+      ],
+      "supportingUrls": [
+        "/strength-conditioning",
+        "/performance-coaching"
+      ],
       "intent": "commercial",
       "status": "implemented"
     },
@@ -72,8 +106,14 @@
       "name": "Strength and conditioning",
       "commercialUrl": "/strength-conditioning",
       "primaryKeyword": "strength and conditioning coaching",
-      "secondaryKeywords": ["strength and conditioning coach London", "strength coach London"],
-      "supportingUrls": ["/personal-training", "/triathlon-coaching"],
+      "secondaryKeywords": [
+        "strength and conditioning coach London",
+        "strength coach London"
+      ],
+      "supportingUrls": [
+        "/personal-training",
+        "/triathlon-coaching"
+      ],
       "intent": "commercial",
       "status": "optimised"
     }
@@ -102,11 +142,12 @@
     {
       "territory": "ADHD coaching",
       "slug": "adhd-coaching-vs-therapy",
-      "workingTitle": "ADHD Coaching vs Therapy: What Each Is For",
+      "workingTitle": "ADHD Coaching vs Therapy: What Each Is For—and When You May Need Both",
       "primaryKeyword": "ADHD coaching vs therapy",
       "intent": "comparison",
       "commercialDestination": "/adhd-coaching",
-      "evidenceRequirement": "Authoritative clinical guidance and explicit scope boundary."
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
     },
     {
       "territory": "Performance coaching",
@@ -115,7 +156,8 @@
       "primaryKeyword": "high performance without burnout",
       "intent": "informational-commercial",
       "commercialDestination": "/performance-coaching",
-      "evidenceRequirement": "Evidence on recovery, workload and performance; no fabricated outcomes."
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
     },
     {
       "territory": "Strength and conditioning",
@@ -124,7 +166,78 @@
       "primaryKeyword": "strength and conditioning vs personal training",
       "intent": "comparison",
       "commercialDestination": "/strength-conditioning",
-      "evidenceRequirement": "Scope-based comparison; avoid protected-title implications."
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "ADHD coaching",
+      "slug": "what-is-adhd-coaching",
+      "workingTitle": "What Is ADHD Coaching—and What Should It Actually Help You Do?",
+      "primaryKeyword": "what is ADHD coaching",
+      "intent": "informational",
+      "commercialDestination": "/adhd-coaching",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Performance coaching",
+      "slug": "what-does-a-performance-coach-do",
+      "workingTitle": "What Does a Performance Coach Do—and Is It Different From Life Coaching?",
+      "primaryKeyword": "what does a performance coach do",
+      "intent": "informational-commercial",
+      "commercialDestination": "/performance-coaching",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Strength and conditioning",
+      "slug": "what-is-strength-and-conditioning",
+      "workingTitle": "What Is Strength and Conditioning—and Who Is It Actually For?",
+      "primaryKeyword": "what is strength and conditioning",
+      "intent": "informational",
+      "commercialDestination": "/strength-conditioning",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "personal-training-cost-london",
+      "workingTitle": "How Much Does Personal Training Cost in London—and What Are You Paying For?",
+      "primaryKeyword": "personal training cost London",
+      "intent": "commercial-investigation",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "how-online-personal-training-works",
+      "workingTitle": "How Does Online Personal Training Work—and Who Is It Best For?",
+      "primaryKeyword": "how does online personal training work",
+      "intent": "informational-commercial",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Burnout coaching",
+      "slug": "am-i-burnt-out",
+      "workingTitle": "Am I Burnt Out—or Just Tired? Signs, Context and What to Do Next",
+      "primaryKeyword": "am I burnt out",
+      "intent": "informational",
+      "commercialDestination": "/burnout-coaching",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Nervous system coaching",
+      "slug": "nervous-system-dysregulation-signs",
+      "workingTitle": "Signs of Nervous System Dysregulation—and What They Can and Cannot Tell You",
+      "primaryKeyword": "signs of nervous system dysregulation",
+      "intent": "informational",
+      "commercialDestination": "/nervous-system",
+      "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
     }
   ]
 }

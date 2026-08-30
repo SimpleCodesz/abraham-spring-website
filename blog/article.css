@@ -42,6 +42,24 @@ body.editorial-page[data-theme="burnout"] {
   --theme-accent-2: #8B6F91;
 }
 
+body.editorial-page[data-theme="adhd"] {
+  --theme-accent: #31568B;
+  --theme-accent-rgb: 49, 86, 139;
+  --theme-accent-2: #75607F;
+}
+
+body.editorial-page[data-theme="performance"] {
+  --theme-accent: #305B47;
+  --theme-accent-rgb: 48, 91, 71;
+  --theme-accent-2: #9A6330;
+}
+
+body.editorial-page[data-theme="training"] {
+  --theme-accent: #7A4218;
+  --theme-accent-rgb: 122, 66, 24;
+  --theme-accent-2: #596873;
+}
+
 body.editorial-page a {
   color: inherit;
   text-decoration-thickness: 1px;
@@ -294,6 +312,28 @@ body.editorial-page a {
 
 .answer-box { background: linear-gradient(145deg, rgba(var(--theme-accent-rgb), .12), rgba(255, 255, 255, .9)); }
 .scope-box { border-color: rgba(var(--theme-accent-rgb), .34); }
+
+.comparison-table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-table th { background: rgba(var(--theme-accent-rgb), .1); color: var(--ink); }
+
+.faq-list { display: grid; gap: 12px; margin-top: 22px; }
+.faq-item { padding: 20px 22px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.7); }
+.faq-item h3 { margin: 0 0 8px; font-size: 18px; }
+.faq-item p { margin: 0; }
 .source-box { background: rgba(255, 255, 255, .62); }
 
 .answer-box h2,
