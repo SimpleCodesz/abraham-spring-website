@@ -12,7 +12,7 @@ const articles = [
     h1: 'What Is ADHD Coaching—and What Should It Actually Help You Do?',
     description: 'ADHD coaching explained clearly: what happens in sessions, what it can support, where its limits sit and how to decide whether it fits your needs.',
     deck: 'ADHD coaching is not another place to be told to try harder. Done well, it helps turn insight into visible systems, smaller decisions and repeatable follow-through.',
-    image: 'adhd-coaching-editorial.webp', alt: 'Abraham Spring running beside the lake at Blenheim Palace', destination: '/adhd-coaching', nav: 'ADHD coaching',
+    image: 'adhd-coaching-editorial.webp', alt: 'Two adults having a focused coaching conversation at a calm studio table', destination: '/adhd-coaching', nav: 'ADHD coaching',
     answerTitle: 'The short answer',
     answer: '<p>ADHD coaching is a collaborative, non-clinical process focused on how you plan, start, prioritise, remember and complete the things that matter. It can help you build external structure around attention and executive-function challenges. It does not diagnose ADHD, prescribe medication or replace psychological or medical care.</p>',
     sections: [
@@ -176,7 +176,7 @@ const articles = [
     h1: 'Am I Burnt Out—or Just Tired? Signs, Context and What to Do Next',
     description: 'A grounded guide to burnout signs, how burnout differs from ordinary tiredness, what else symptoms may mean and practical next steps for support.',
     deck: 'One exhausted week does not define you. But when rest stops restoring you, distance from work grows and your sense of effectiveness shrinks, the pattern deserves attention.',
-    image: 'am-i-burnt-out-editorial.webp', alt: 'Abraham Spring running with support during the Blenheim Palace Triathlon', destination: '/burnout-coaching', nav: 'Burnout coaching',
+    image: 'am-i-burnt-out-editorial.webp', alt: 'A professional sitting reflectively at a table before the working day begins', destination: '/burnout-coaching', nav: 'Burnout coaching',
     answerTitle: 'The pattern to notice',
     answer: '<p>WHO describes burnout through three occupational dimensions: exhaustion, increasing mental distance or cynicism towards work, and reduced professional efficacy. It is not classified as a medical condition. If symptoms are significant, persistent or worsening, seek appropriate healthcare support because other physical and mental-health conditions can look similar.</p>',
     sections: [
