@@ -1,0 +1,113 @@
+{
+  "campaign": "Abraham Spring 30-Keyword Content Campaign",
+  "lane": "nervous-system-performance-executive",
+  "generatedAt": "2026-09-02",
+  "editorialStandard": {
+    "positioning": "Evidence-led, coach-authored and product-light recovery-led coaching",
+    "primaryConversion": "Have a coffee with Abraham",
+    "healthBoundary": "Non-clinical coaching and education only; no diagnosis, treatment, cure or literal nervous-system reset claims",
+    "productBoundary": "The Unbroken Protocol app, meditation and breathwork are optional implementation tools, not medical interventions"
+  },
+  "deliverables": [
+    {
+      "path": "blog/nervous-system-regulation.html",
+      "canonical": "https://abrahamspring.co.uk/blog/nervous-system-regulation",
+      "type": "article-new",
+      "primaryKeyword": "nervous system regulation",
+      "secondaryKeywords": ["regulate nervous system", "nervous system regulation techniques"],
+      "commercialDestination": "/nervous-system",
+      "sources": ["NHS breathing exercises for stress", "WHO Doing What Matters in Times of Stress", "HSE Management Standards", "NHS stress guidance"],
+      "claimBoundaries": ["Regulation is shorthand, not a diagnosis", "No permanent-calm or healing promise", "Coaching does not replace clinical care"]
+    },
+    {
+      "path": "blog/nervous-system-dysregulation-signs.html",
+      "canonical": "https://abrahamspring.co.uk/blog/nervous-system-dysregulation-signs",
+      "type": "article-upgrade",
+      "primaryKeyword": "nervous system dysregulation",
+      "secondaryKeywords": ["dysregulated nervous system", "nervous system dysregulation signs"],
+      "commercialDestination": "/nervous-system",
+      "sources": ["NHS stress guidance", "NHS breathing exercises for stress", "NHS 111"],
+      "claimBoundaries": ["Symptom list is not diagnostic", "HRV does not prove psychological or medical state", "New or concerning symptoms require appropriate assessment"]
+    },
+    {
+      "path": "blog/nervous-system-regulation-exercises.html",
+      "canonical": "https://abrahamspring.co.uk/blog/nervous-system-regulation-exercises",
+      "type": "article-upgrade",
+      "primaryKeyword": "nervous system regulation exercises",
+      "secondaryKeywords": ["breathing exercises for stress", "nervous system regulation techniques"],
+      "commercialDestination": "/nervous-system",
+      "sources": ["NHS breathing exercises for stress", "Randomised slow-breathing trial", "Randomised deep-breathing HRV trial", "NHS stress guidance"],
+      "claimBoundaries": ["Practices may support a state change", "No universal breathing ratio or wearable outcome", "Exercises do not treat anxiety or trauma"]
+    },
+    {
+      "path": "blog/how-to-calm-your-nervous-system.html",
+      "canonical": "https://abrahamspring.co.uk/blog/how-to-calm-your-nervous-system",
+      "type": "article-new",
+      "primaryKeyword": "calm nervous system",
+      "secondaryKeywords": ["how to calm nervous system", "regulate nervous system"],
+      "commercialDestination": "/nervous-system",
+      "sources": ["NHS breathing exercises for stress", "WHO Doing What Matters in Times of Stress", "NHS stress guidance"],
+      "claimBoundaries": ["No guaranteed instant method", "Forced breathing can be counterproductive", "Practices are coping support rather than cures"]
+    },
+    {
+      "path": "blog/can-you-reset-your-nervous-system.html",
+      "canonical": "https://abrahamspring.co.uk/blog/can-you-reset-your-nervous-system",
+      "type": "article-new",
+      "primaryKeyword": "reset nervous system",
+      "secondaryKeywords": ["how to reset nervous system", "regulate nervous system"],
+      "commercialDestination": "/nervous-system",
+      "sources": ["Scientific Reports breathwork meta-analysis", "NHS breathing exercises for stress", "WHO Doing What Matters in Times of Stress"],
+      "claimBoundaries": ["Explicitly rejects a literal reset", "No fixed reset timeline", "Cold exposure is a stressor rather than a universal treatment"]
+    },
+    {
+      "path": "performance-coaching.html",
+      "canonical": "https://abrahamspring.co.uk/performance-coaching",
+      "type": "commercial-upgrade",
+      "primaryKeyword": "performance coach",
+      "secondaryKeywords": ["performance coaching", "high performance coaching", "performance coach London"],
+      "commercialDestination": "/#research",
+      "sources": ["HSE Management Standards", "WHO mental health at work", "NHS stress guidance"],
+      "claimBoundaries": ["No guaranteed outcome", "Non-clinical coaching", "Executive route distinguished without invented credentials"]
+    },
+    {
+      "path": "blog/what-does-a-performance-coach-do.html",
+      "canonical": "https://abrahamspring.co.uk/blog/what-does-a-performance-coach-do",
+      "type": "article-upgrade",
+      "primaryKeyword": "what is performance coaching",
+      "secondaryKeywords": ["what does a performance coach do", "performance coach"],
+      "commercialDestination": "/performance-coaching",
+      "sources": ["HSE Management Standards", "WHO mental health at work", "NHS stress guidance"],
+      "claimBoundaries": ["Coaching, mentoring, consulting and therapy scopes distinguished", "No dependency or transformation promise", "Clinical support is not replaced"]
+    },
+    {
+      "path": "executive-performance-coaching.html",
+      "canonical": "https://abrahamspring.co.uk/executive-performance-coaching",
+      "type": "commercial-new",
+      "primaryKeyword": "executive coach London",
+      "secondaryKeywords": ["executive coaching London", "executive performance coach", "online executive coach"],
+      "commercialDestination": "/#research",
+      "sources": ["International Coaching Federation Code of Ethics", "HSE Management Standards"],
+      "claimBoundaries": ["Does not represent Abraham as ICF-credentialled", "Explicit sponsor confidentiality boundaries", "Not therapy, medical care or consultancy"]
+    },
+    {
+      "path": "blog/how-to-choose-an-executive-coach-london.html",
+      "canonical": "https://abrahamspring.co.uk/blog/how-to-choose-an-executive-coach-london",
+      "type": "article-new",
+      "primaryKeyword": "executive coach London",
+      "secondaryKeywords": ["choose executive coach", "executive coaching London"],
+      "commercialDestination": "/executive-performance-coaching",
+      "sources": ["International Coaching Federation Code of Ethics", "HSE Management Standards"],
+      "claimBoundaries": ["Selection criteria do not imply a regulated title", "No named clients or outcomes", "Role boundaries and sponsor confidentiality are explicit"]
+    },
+    {
+      "path": "blog/performance-coach-vs-executive-coach.html",
+      "canonical": "https://abrahamspring.co.uk/blog/performance-coach-vs-executive-coach",
+      "type": "article-new",
+      "primaryKeyword": "performance coach vs executive coach",
+      "secondaryKeywords": ["performance coaching", "executive coaching"],
+      "commercialDestination": "/executive-performance-coaching",
+      "sources": ["International Coaching Federation Code of Ethics"],
+      "claimBoundaries": ["Comparison is based on stated service scopes", "No credential claim", "Neither coaching route is clinical care"]
+    }
+  ]
+}
