@@ -42,16 +42,6 @@
     document.documentElement.classList.remove('story-leaving');
   }
 
-  function prepareNativeNames(card) {
-    document.querySelectorAll(`${CARD_SELECTOR} img, ${CARD_SELECTOR} h2`).forEach((element) => {
-      element.style.viewTransitionName = '';
-    });
-    const image = card.querySelector('img');
-    const title = card.querySelector('h2');
-    if (image) image.style.viewTransitionName = 'story-image';
-    if (title) title.style.viewTransitionName = 'story-title';
-  }
-
   function navigateFromCard(card, url) {
     if (!card.animate || reducedMotion.matches) {
       window.location.assign(url.href);
@@ -62,7 +52,6 @@
     const clone = card.cloneNode(true);
     const backdrop = document.createElement('div');
     const image = clone.querySelector('img');
-    const cloneTitle = clone.querySelector('h2');
     const upwardTravel = Math.min(Math.max(rect.top - 18, 28), 210);
     const availableScale = (window.innerWidth - 32) / rect.width;
     const scale = Math.min(Math.max(availableScale, 1.018), 1.045);
@@ -70,10 +59,6 @@
     backdrop.className = 'story-transition-backdrop';
     clone.classList.add('story-transition-card');
     clone.removeAttribute('href');
-    // The real card owns the shared-element names. Duplicating those names on
-    // the visual clone aborts the browser's cross-document transition.
-    if (image) image.style.viewTransitionName = '';
-    if (cloneTitle) cloneTitle.style.viewTransitionName = '';
     Object.assign(clone.style, {
       top: `${rect.top}px`,
       left: `${rect.left}px`,
@@ -129,7 +114,6 @@
       if (url.origin !== window.location.origin) return;
 
       safeStorage.write(transitionRecordFor(url));
-      prepareNativeNames(card);
       event.preventDefault();
       navigateFromCard(card, url);
     });
@@ -149,8 +133,6 @@
     safeStorage.clear();
     const image = document.querySelector('.article > .hero-img');
     const title = document.querySelector('.article > h1');
-    if (image) image.style.viewTransitionName = 'story-image';
-    if (title) title.style.viewTransitionName = 'story-title';
     if (reducedMotion.matches || !Element.prototype.animate) return;
 
     const elements = [
