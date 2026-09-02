@@ -1,0 +1,98 @@
+{
+  "lane": "burnout-adhd",
+  "branch": "codex/seo-burnout-adhd",
+  "generated": "2026-09-02",
+  "editorial_model": "evidence-led, coach-authored, product-light",
+  "deliverables": [
+    {
+      "path": "blog/am-i-burnt-out.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/blog/am-i-burnt-out",
+      "primary_keyword": "am I burnt out",
+      "secondary_keywords": ["burnout symptoms", "workplace burnout symptoms", "burnout at work symptoms"],
+      "sources": ["WHO burnout classification", "HSE Management Standards", "NHS stress guidance"],
+      "claim_boundaries": ["not a self-diagnosis", "burnout described only in WHO's occupational sense", "app and practices are optional support, not treatment"]
+    },
+    {
+      "path": "blog/burnout-recovery-stages.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/blog/burnout-recovery-stages",
+      "primary_keyword": "burnout recovery",
+      "secondary_keywords": ["burnout recovery stages", "how long does burnout last", "how long does it take to recover from burnout"],
+      "sources": ["WHO burnout classification", "peer-reviewed recovery-process research", "peer-reviewed work-stress recovery research", "peer-reviewed rehabilitation research"],
+      "claim_boundaries": ["no universal timeline", "phases are a practical model, not a medical protocol", "coaching is non-clinical"]
+    },
+    {
+      "path": "blog/high-performance-without-burnout.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/blog/high-performance-without-burnout",
+      "primary_keyword": "high performance without burnout",
+      "secondary_keywords": ["how to prevent burnout", "how to avoid burnout", "how to stop burnout", "sustainable high performance"],
+      "sources": ["WHO burnout classification", "HSE Management Standards", "NHS stress guidance"],
+      "claim_boundaries": ["stress is not presented as uniformly harmful", "R.A.C.E. is a coaching framework", "app, meditation and breathwork are not treatment"]
+    },
+    {
+      "path": "blog/adhd-burnout.html",
+      "status": "new",
+      "canonical_url": "https://abrahamspring.co.uk/blog/adhd-burnout",
+      "primary_keyword": "ADHD burnout",
+      "secondary_keywords": ["ADHD burnout signs", "ADHD exhaustion", "ADHD burnout recovery"],
+      "sources": ["NICE ADHD guideline NG87", "NHS ADHD overview", "NHS stress guidance"],
+      "claim_boundaries": ["ADHD burnout is identified as an informal term", "no diagnosis or universal timeline", "medication decisions remain with the responsible clinician"]
+    },
+    {
+      "path": "blog/burnout-vs-depression.html",
+      "status": "new",
+      "canonical_url": "https://abrahamspring.co.uk/blog/burnout-vs-depression",
+      "primary_keyword": "burnout vs depression",
+      "secondary_keywords": ["burnout or depression", "difference between burnout and depression"],
+      "sources": ["WHO burnout classification", "NHS clinical depression guidance", "NICE depression guideline NG222", "NHS suicidal-thoughts support"],
+      "claim_boundaries": ["article cannot diagnose either condition", "clinical support leads for depression, risk or treatment", "coaching is deliberately secondary"]
+    },
+    {
+      "path": "blog/what-is-adhd-coaching.html",
+      "status": "new",
+      "canonical_url": "https://abrahamspring.co.uk/blog/what-is-adhd-coaching",
+      "primary_keyword": "what is ADHD coaching",
+      "secondary_keywords": ["ADHD coaching", "ADHD coach", "ADHD coaching UK"],
+      "sources": ["NICE ADHD guideline NG87", "NHS ADHD overview", "NHS England ADHD Taskforce report"],
+      "claim_boundaries": ["coaching is non-clinical", "coach does not diagnose or prescribe", "UK regulatory limitations stated transparently"]
+    },
+    {
+      "path": "blog/adhd-coaching-vs-therapy.html",
+      "status": "new",
+      "canonical_url": "https://abrahamspring.co.uk/blog/adhd-coaching-vs-therapy",
+      "primary_keyword": "ADHD coaching vs therapy",
+      "secondary_keywords": ["ADHD coach or therapist", "ADHD support", "ADHD coaching"],
+      "sources": ["NICE ADHD guideline NG87", "NHS ADHD overview", "Professional Standards Authority register guidance", "HCPC register guidance"],
+      "claim_boundaries": ["provider titles and regulation vary", "clinical support leads for assessment, treatment, risk or significant distress", "combined support requires clear roles and consent"]
+    },
+    {
+      "path": "adhd-coaching.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/adhd-coaching",
+      "primary_keyword": "ADHD coaching",
+      "secondary_keywords": ["ADHD coach", "ADHD coach London", "ADHD coaching online", "ADHD coaching UK"],
+      "sources": ["NICE ADHD guideline NG87", "NHS ADHD overview"],
+      "claim_boundaries": ["non-clinical performance and systems coaching", "no dopamine simplifications or symptom promises", "diagnosis belongs with an appropriately qualified professional"]
+    },
+    {
+      "path": "burnout-coaching.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/burnout-coaching",
+      "primary_keyword": "burnout coach",
+      "secondary_keywords": ["burnout coaching", "burnout recovery coach", "burnout coach London", "online burnout coaching"],
+      "sources": ["WHO burnout classification", "HSE Management Standards"],
+      "claim_boundaries": ["service is non-clinical", "no diagnosis or treatment", "clinical care can sit alongside coaching or take priority"]
+    },
+    {
+      "path": "high-performer-burnout.html",
+      "status": "upgrade",
+      "canonical_url": "https://abrahamspring.co.uk/high-performer-burnout",
+      "primary_keyword": "burnout coaching for high performers",
+      "secondary_keywords": ["high performer burnout", "high achiever burnout", "recovery-led performance coaching"],
+      "sources": ["WHO burnout classification", "HSE Management Standards"],
+      "claim_boundaries": ["identity language framed as a possible pattern, not a cause", "no high-functioning-burnout diagnosis", "R.A.C.E. is a non-clinical coaching framework"]
+    }
+  ]
+}
