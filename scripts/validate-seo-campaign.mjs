@@ -107,6 +107,21 @@ for (const article of implementedArticles) {
   if (JSON.stringify(visible) !== JSON.stringify(schema)) fail(`${owner}: visible FAQ does not exactly match FAQPage schema`);
 }
 
+const blogIndexHtml = await readFile(path.join(root, 'blog', 'index.html'), 'utf8');
+const blogIndexObjects = [];
+for (const block of blogIndexHtml.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
+  try { blogIndexObjects.push(JSON.parse(block[1])); } catch (_) { /* Base validator reports invalid JSON-LD. */ }
+}
+const blogSchema = blogIndexObjects.find((item) => item['@type'] === 'Blog');
+const blogPosts = blogSchema?.blogPost ?? [];
+if (!blogPosts.length) fail('blog/index.html: Blog.blogPost schema is missing');
+if (blogPosts.some((item) => item['@type'] !== 'BlogPosting')) fail('blog/index.html: every Blog.blogPost item must have @type BlogPosting');
+const visibleCardPaths = [...blogIndexHtml.matchAll(/<a\s+href="(\/blog\/[^"]+)"\s+class="insight-card/gi)].map((match) => match[1]).sort();
+const schemaCardPaths = blogPosts.map((item) => {
+  try { return new URL(item.url).pathname; } catch (_) { return ''; }
+}).sort();
+if (JSON.stringify(visibleCardPaths) !== JSON.stringify(schemaCardPaths)) fail('blog/index.html: Blog.blogPost URLs must exactly match the visible insight-card URLs');
+
 for (const territory of ownership.territories) {
   recordUnique('keyword', territory.primaryKeyword.trim().toLocaleLowerCase('en-GB'), territory.commercialUrl);
   const filename = path.join(root, `${territory.commercialUrl.replace(/^\//, '')}.html`);
