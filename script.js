@@ -275,7 +275,51 @@ window.addEventListener('DOMContentLoaded', () => {
 const applicationForm = document.getElementById('applicationForm');
 const formSuccess = document.getElementById('formSuccess');
 
+function safeSessionGet(key) {
+  try { return sessionStorage.getItem(key) || ''; } catch (_) { return ''; }
+}
+
+function safeSessionSet(key, value) {
+  try { sessionStorage.setItem(key, value); } catch (_) { /* Attribution remains best-effort. */ }
+}
+
+// Preserve the article/service journey without storing personal data.
+// The values are submitted with the coffee form and mirrored into GA4.
+const coachingAttribution = (function() {
+  const params = new URLSearchParams(window.location.search);
+  let referrerPath = '';
+  try {
+    const referrer = document.referrer ? new URL(document.referrer) : null;
+    if (referrer && referrer.hostname === window.location.hostname) referrerPath = referrer.pathname;
+  } catch (_) {
+    referrerPath = '';
+  }
+
+  const explicitSource = params.get('source');
+  const explicitTopic = params.get('topic');
+  const contentSource = explicitSource || (referrerPath.startsWith('/blog/') ? referrerPath : '');
+  const inferredTopic = explicitTopic || (contentSource.startsWith('/blog/') ? contentSource.split('/').filter(Boolean).pop() : '');
+  if (contentSource) safeSessionSet('as_content_source', contentSource);
+  if (inferredTopic) safeSessionSet('as_content_topic', inferredTopic);
+
+  return {
+    source: safeSessionGet('as_content_source') || referrerPath || window.location.pathname,
+    topic: safeSessionGet('as_content_topic'),
+    landing: referrerPath || 'direct'
+  };
+})();
+
 if (applicationForm) {
+  const sourceField = applicationForm.querySelector('[name="source_path"]');
+  const topicField = applicationForm.querySelector('[name="topic_path"]');
+  const referrerField = applicationForm.querySelector('[name="landing_referrer"]');
+  if (sourceField) sourceField.value = coachingAttribution.source;
+  if (topicField) topicField.value = coachingAttribution.topic;
+  if (referrerField) referrerField.value = coachingAttribution.landing;
+  applicationForm.dataset.attributionReady = 'true';
+  applicationForm.dataset.sourceCaptured = coachingAttribution.source ? 'true' : 'false';
+  applicationForm.dataset.topicCaptured = coachingAttribution.topic ? 'true' : 'false';
+
   applicationForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
@@ -293,7 +337,10 @@ if (applicationForm) {
     .then(function(response) {
       if (response.ok) {
         if (typeof gtag === 'function') {
-          gtag('event', 'questionnaire_submit', {});
+          gtag('event', 'questionnaire_submit', {
+            source_path: coachingAttribution.source,
+            topic_path: coachingAttribution.topic
+          });
         }
         window.location.href = '/thank-you';
       } else {
@@ -645,9 +692,12 @@ document.querySelectorAll('.specular').forEach(function(card) {
   // Track "Book a Discovery Call" / "Apply Now" CTA clicks
   document.querySelectorAll('.nav-cta, .sticky-cta-btn, .btn-primary[href="#research"], .hero-ctas .btn-primary').forEach(function(btn) {
     btn.addEventListener('click', function() {
+      safeSessionSet('as_last_coaching_touch', window.location.pathname);
       gtag('event', 'cta_click', {
         cta_text: this.textContent.trim(),
-        cta_location: this.closest('nav') ? 'navbar' : this.closest('.sticky-cta') ? 'sticky_bar' : this.closest('.hero') ? 'hero' : 'page'
+        cta_location: this.closest('nav') ? 'navbar' : this.closest('.sticky-cta') ? 'sticky_bar' : this.closest('.hero') ? 'hero' : 'page',
+        source_path: coachingAttribution.source,
+        page_path: window.location.pathname
       });
     });
   });
