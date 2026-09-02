@@ -1,0 +1,26 @@
+{
+  "release": "Abraham Spring SEO campaign Wave 1",
+  "status": "release-candidate",
+  "baseCommit": "23ae61b5b6916d30eb70b3573cad454de4fc67c6",
+  "approvedBy": "Abraham Spring",
+  "approvedAt": "2026-09-02",
+  "deliverables": [
+    "/blog/am-i-burnt-out",
+    "/burnout-coaching",
+    "/adhd-coaching",
+    "/personal-training",
+    "/performance-coaching"
+  ],
+  "sharedChanges": [
+    "Story-card lift and article-entry motion for the existing 12-article Insights library",
+    "Reduced-motion and Back-navigation restoration",
+    "Source and topic attribution for the coffee enquiry form"
+  ],
+  "excluded": "All Wave 2-6 campaign pages, routes, blog cards and sitemap entries",
+  "releaseGate": [
+    "Independent exact-head review",
+    "Netlify deploy-preview checks",
+    "Production verification after merge",
+    "Google Search Console and Bing submission only after live verification"
+  ]
+}
