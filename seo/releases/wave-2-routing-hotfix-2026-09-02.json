@@ -1,0 +1,20 @@
+{
+  "release": "Abraham Spring Wave 2 enquiry-routing hotfix",
+  "status": "review-candidate",
+  "baseCommit": "4c4da6f0ee02cc67e911693c8778db27c9779b46",
+  "reason": "Production verification found that /#research navigation could stop at the preceding homepage section when clean-URL replacement interrupted the initial fragment scroll.",
+  "scope": [
+    "Map current homepage section IDs to clean paths",
+    "Position incoming fragment and clean-path targets before active-section URL replacement",
+    "Include the enquiry section in ordered route tracking",
+    "Preserve service-page URLs when no local homepage sections exist",
+    "Bump the shared script cache version across all HTML consumers"
+  ],
+  "validation": [
+    "Executive Performance Coaching, Strength and Conditioning and Performance Coaching CTAs reach /research with the enquiry form present",
+    "Direct /#research navigation reaches /research",
+    "Homepage About navigation still reaches /about",
+    "JavaScript syntax, SEO validators and Git diff checks pass"
+  ],
+  "releaseGate": "Independent exact-head review and explicit release authority already supplied for completing the approved Wave 2 deployment verification and remediation."
+}
