@@ -62,6 +62,7 @@
     const clone = card.cloneNode(true);
     const backdrop = document.createElement('div');
     const image = clone.querySelector('img');
+    const cloneTitle = clone.querySelector('h2');
     const upwardTravel = Math.min(Math.max(rect.top - 18, 28), 210);
     const availableScale = (window.innerWidth - 32) / rect.width;
     const scale = Math.min(Math.max(availableScale, 1.018), 1.045);
@@ -69,6 +70,10 @@
     backdrop.className = 'story-transition-backdrop';
     clone.classList.add('story-transition-card');
     clone.removeAttribute('href');
+    // The real card owns the shared-element names. Duplicating those names on
+    // the visual clone aborts the browser's cross-document transition.
+    if (image) image.style.viewTransitionName = '';
+    if (cloneTitle) cloneTitle.style.viewTransitionName = '';
     Object.assign(clone.style, {
       top: `${rect.top}px`,
       left: `${rect.left}px`,
