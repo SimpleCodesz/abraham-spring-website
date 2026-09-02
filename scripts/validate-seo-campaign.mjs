@@ -57,6 +57,12 @@ function schemaFaq(objects) {
   }));
 }
 
+function visibleServiceFaq(html) {
+  const section = html.match(/<section[^>]*id="faq"[^>]*>([\s\S]*?)<\/section>/i)?.[1] ?? '';
+  return [...section.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)]
+    .map((match) => ({ question: decode(match[1]), answer: decode(match[2]) }));
+}
+
 const implementedArticles = ownership.articleBacklog.filter((item) => item.status === 'implemented');
 for (const article of implementedArticles) {
   const owner = `blog/${article.slug}`;
@@ -107,6 +113,13 @@ for (const territory of ownership.territories) {
   const html = await readFile(filename, 'utf8');
   const primaryCta = html.match(/<a\s+href="([^"]+)"\s+class="btn-primary"/i)?.[1] ?? '';
   if (primaryCta !== '/#research') fail(`${territory.commercialUrl}: first primary CTA must lead to the coaching enquiry, found ${primaryCta || 'none'}`);
+  const objects = [];
+  for (const block of html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
+    try { objects.push(...jsonLdObjects(JSON.parse(block[1]))); } catch (_) { /* Base validator reports invalid JSON-LD. */ }
+  }
+  const visible = visibleServiceFaq(html);
+  const schema = schemaFaq(objects);
+  if (schema.length && JSON.stringify(visible) !== JSON.stringify(schema)) fail(`${territory.commercialUrl}: visible service FAQ does not exactly match FAQPage schema`);
 }
 
 if (implementedArticles.length !== 24) {

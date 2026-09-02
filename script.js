@@ -298,8 +298,9 @@ const coachingAttribution = (function() {
   const explicitSource = params.get('source');
   const explicitTopic = params.get('topic');
   const contentSource = explicitSource || (referrerPath.startsWith('/blog/') ? referrerPath : '');
+  const inferredTopic = explicitTopic || (contentSource.startsWith('/blog/') ? contentSource.split('/').filter(Boolean).pop() : '');
   if (contentSource) safeSessionSet('as_content_source', contentSource);
-  if (explicitTopic) safeSessionSet('as_content_topic', explicitTopic);
+  if (inferredTopic) safeSessionSet('as_content_topic', inferredTopic);
 
   return {
     source: safeSessionGet('as_content_source') || referrerPath || window.location.pathname,
