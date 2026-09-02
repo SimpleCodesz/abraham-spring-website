@@ -1,0 +1,31 @@
+{
+  "release": "Abraham Spring SEO campaign Wave 2",
+  "status": "review-candidate",
+  "baseCommit": "b99ff120f7b519e512d57cb31ac8d5228f4c8f39",
+  "preparationAuthorisedBy": "Abraham Spring",
+  "preparationAuthorisedAt": "2026-09-02",
+  "mergeApproval": "pending independent exact-head review and explicit release approval",
+  "deliverables": [
+    "/blog/adhd-burnout",
+    "/blog/nervous-system-regulation",
+    "/executive-performance-coaching",
+    "/strength-conditioning",
+    "/blog/burnout-recovery-stages"
+  ],
+  "sharedChanges": [
+    "Two new Insights cards with matching BlogPosting entries",
+    "Sitemap entries and lastmod updates for only the Wave 2 routes and Insights index",
+    "llms.txt entries for the new Wave 2 service and articles",
+    "Internal links constrained to routes already live or included in this wave",
+    "Shared section-router guard that preserves service-page URLs and allows /#research CTAs to load the homepage enquiry form",
+    "Mechanical script cache-version bump across HTML consumers so the navigation fix reaches existing service pages"
+  ],
+  "excluded": "All Wave 3-6 campaign pages, routes, blog cards and sitemap entries",
+  "releaseGate": [
+    "Independent exact-head claims, SEO, visual and conversion review",
+    "Netlify deploy-preview checks",
+    "Explicit release approval before merge",
+    "Production verification after merge",
+    "Google Search Console and Bing submission only after live verification"
+  ]
+}
