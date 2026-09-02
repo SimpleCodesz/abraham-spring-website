@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updated": "2026-09-02",
   "market": "United Kingdom",
   "measurement": {
@@ -15,7 +15,9 @@
     "bingWebmasterTools": "verified-via-gsc; sitemap-imported-processing",
     "trackedKeywords": 60,
     "authorityArticleKeywords": 22,
-    "latestKeywordExpansion": "18 strict UK commercial and local-intent keywords added in SE Ranking on 2026-08-31"
+    "campaignKeywordFoundation": 30,
+    "campaignBuild": "30 deliverables across burnout and ADHD, nervous-system and performance, and training and recovery lanes",
+    "latestKeywordExpansion": "30-keyword UK campaign foundation checked in SE Ranking on 2026-09-02; rank tracking remains a separate 60-keyword project set"
   },
   "guardrails": [
     "British English throughout.",
@@ -25,12 +27,45 @@
     "Burnout coaching must direct significant or worsening symptoms to an appropriate healthcare professional.",
     "Do not invent qualifications, client outcomes, testimonials, scarcity or numerical claims."
   ],
+  "targetKeywords": [
+    {"keyword":"burnout symptoms","ukVolume":8100,"difficulty":67,"canonicalOwner":"/blog/am-i-burnt-out"},
+    {"keyword":"ADHD burnout","ukVolume":4400,"difficulty":48,"canonicalOwner":"/blog/adhd-burnout"},
+    {"keyword":"ADHD coaching","ukVolume":1800,"difficulty":46,"canonicalOwner":"/adhd-coaching"},
+    {"keyword":"nervous system regulation","ukVolume":1600,"difficulty":52,"canonicalOwner":"/blog/nervous-system-regulation"},
+    {"keyword":"ADHD coach","ukVolume":1500,"difficulty":46,"canonicalOwner":"/adhd-coaching"},
+    {"keyword":"nervous system dysregulation","ukVolume":1300,"difficulty":58,"canonicalOwner":"/blog/nervous-system-dysregulation-signs"},
+    {"keyword":"dysregulated nervous system","ukVolume":740,"difficulty":34,"canonicalOwner":"/blog/nervous-system-dysregulation-signs"},
+    {"keyword":"personal trainer London","ukVolume":720,"difficulty":8,"canonicalOwner":"/personal-training"},
+    {"keyword":"burnout recovery","ukVolume":660,"difficulty":27,"canonicalOwner":"/blog/burnout-recovery-stages"},
+    {"keyword":"performance coach","ukVolume":610,"difficulty":18,"canonicalOwner":"/performance-coaching"},
+    {"keyword":"executive coach London","ukVolume":590,"difficulty":14,"canonicalOwner":"/executive-performance-coaching"},
+    {"keyword":"calm nervous system","ukVolume":590,"difficulty":20,"canonicalOwner":"/blog/how-to-calm-your-nervous-system"},
+    {"keyword":"reset nervous system","ukVolume":590,"difficulty":35,"canonicalOwner":"/blog/can-you-reset-your-nervous-system"},
+    {"keyword":"workplace burnout symptoms","ukVolume":590,"difficulty":48,"canonicalOwner":"/blog/am-i-burnt-out"},
+    {"keyword":"am I burnt out","ukVolume":590,"difficulty":null,"canonicalOwner":"/blog/am-i-burnt-out"},
+    {"keyword":"online personal trainers","ukVolume":480,"difficulty":21,"canonicalOwner":"/blog/how-online-personal-training-works"},
+    {"keyword":"strength and conditioning coach","ukVolume":480,"difficulty":20,"canonicalOwner":"/strength-conditioning"},
+    {"keyword":"burnout vs depression","ukVolume":480,"difficulty":29,"canonicalOwner":"/blog/burnout-vs-depression"},
+    {"keyword":"regulate nervous system","ukVolume":470,"difficulty":26,"canonicalOwner":"/blog/nervous-system-regulation"},
+    {"keyword":"how long does it take to recover from burnout","ukVolume":390,"difficulty":27,"canonicalOwner":"/blog/burnout-recovery-stages"},
+    {"keyword":"how long does burnout last","ukVolume":320,"difficulty":26,"canonicalOwner":"/blog/burnout-recovery-stages"},
+    {"keyword":"performance coaching","ukVolume":270,"difficulty":21,"canonicalOwner":"/performance-coaching"},
+    {"keyword":"ADHD coach London","ukVolume":260,"difficulty":5,"canonicalOwner":"/adhd-coaching"},
+    {"keyword":"breathing exercises for stress","ukVolume":260,"difficulty":61,"canonicalOwner":"/blog/nervous-system-regulation-exercises"},
+    {"keyword":"nervous system regulation techniques","ukVolume":210,"difficulty":35,"canonicalOwner":"/blog/nervous-system-regulation-exercises"},
+    {"keyword":"high performance coaching","ukVolume":170,"difficulty":3,"canonicalOwner":"/performance-coaching"},
+    {"keyword":"burnout coach","ukVolume":170,"difficulty":2,"canonicalOwner":"/burnout-coaching"},
+    {"keyword":"nervous system regulation exercises","ukVolume":110,"difficulty":15,"canonicalOwner":"/blog/nervous-system-regulation-exercises"},
+    {"keyword":"what is ADHD coaching","ukVolume":110,"difficulty":25,"canonicalOwner":"/blog/what-is-adhd-coaching"},
+    {"keyword":"what is performance coaching","ukVolume":70,"difficulty":16,"canonicalOwner":"/blog/what-does-a-performance-coach-do"}
+  ],
   "territories": [
     {
       "name": "Burnout coaching",
       "commercialUrl": "/burnout-coaching",
-      "primaryKeyword": "burnout coaching",
+      "primaryKeyword": "burnout coach",
       "secondaryKeywords": [
+        "burnout coaching",
         "burnout coach London",
         "burnout recovery coach"
       ],
@@ -44,8 +79,9 @@
     {
       "name": "Performance coaching",
       "commercialUrl": "/performance-coaching",
-      "primaryKeyword": "performance coaching",
+      "primaryKeyword": "performance coach",
       "secondaryKeywords": [
+        "performance coaching",
         "high performance coaching",
         "performance coach London"
       ],
@@ -61,8 +97,7 @@
       "commercialUrl": "/nervous-system",
       "primaryKeyword": "nervous system coaching",
       "secondaryKeywords": [
-        "nervous system coach London",
-        "nervous system regulation"
+        "nervous system coach London"
       ],
       "supportingUrls": [
         "/breathwork",
@@ -75,8 +110,10 @@
     {
       "name": "ADHD coaching",
       "commercialUrl": "/adhd-coaching",
-      "primaryKeyword": "ADHD coach London",
+      "primaryKeyword": "ADHD coaching",
       "secondaryKeywords": [
+        "ADHD coach",
+        "ADHD coach London",
         "ADHD coaching London",
         "ADHD performance coach"
       ],
@@ -90,10 +127,10 @@
     {
       "name": "Personal training",
       "commercialUrl": "/personal-training",
-      "primaryKeyword": "personal training London",
+      "primaryKeyword": "personal trainer London",
       "secondaryKeywords": [
-        "personal trainer London",
-        "online personal trainer UK"
+        "personal training London",
+        "personal trainer UK"
       ],
       "supportingUrls": [
         "/strength-conditioning",
@@ -105,8 +142,9 @@
     {
       "name": "Strength and conditioning",
       "commercialUrl": "/strength-conditioning",
-      "primaryKeyword": "strength and conditioning coaching",
+      "primaryKeyword": "strength and conditioning coach",
       "secondaryKeywords": [
+        "strength and conditioning coaching",
         "strength and conditioning coach London",
         "strength coach London"
       ],
@@ -116,6 +154,23 @@
       ],
       "intent": "commercial",
       "status": "optimised"
+    },
+    {
+      "name": "Executive performance coaching",
+      "commercialUrl": "/executive-performance-coaching",
+      "primaryKeyword": "executive coach London",
+      "secondaryKeywords": [
+        "executive coaching London",
+        "executive performance coach",
+        "online executive coach"
+      ],
+      "supportingUrls": [
+        "/performance-coaching",
+        "/executive-burnout-coaching",
+        "/high-performer-burnout"
+      ],
+      "intent": "commercial",
+      "status": "implemented"
     }
   ],
   "articleBacklog": [
@@ -123,7 +178,7 @@
       "territory": "Burnout coaching",
       "slug": "burnout-recovery-stages",
       "workingTitle": "Burnout Recovery Stages: What Changes First—and What Takes Longer",
-      "primaryKeyword": "burnout recovery stages",
+      "primaryKeyword": "burnout recovery",
       "intent": "informational",
       "commercialDestination": "/burnout-coaching",
       "evidenceRequirement": "Primary clinical or public-health sources for definitions; no universal recovery timeline.",
@@ -183,7 +238,7 @@
       "territory": "Performance coaching",
       "slug": "what-does-a-performance-coach-do",
       "workingTitle": "What Does a Performance Coach Do—and Is It Different From Life Coaching?",
-      "primaryKeyword": "what does a performance coach do",
+      "primaryKeyword": "what is performance coaching",
       "intent": "informational-commercial",
       "commercialDestination": "/performance-coaching",
       "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
@@ -213,7 +268,7 @@
       "territory": "Personal training",
       "slug": "how-online-personal-training-works",
       "workingTitle": "How Does Online Personal Training Work—and Who Is It Best For?",
-      "primaryKeyword": "how does online personal training work",
+      "primaryKeyword": "online personal trainers",
       "intent": "informational-commercial",
       "commercialDestination": "/personal-training",
       "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
@@ -223,7 +278,7 @@
       "territory": "Burnout coaching",
       "slug": "am-i-burnt-out",
       "workingTitle": "Am I Burnt Out—or Just Tired? Signs, Context and What to Do Next",
-      "primaryKeyword": "am I burnt out",
+      "primaryKeyword": "burnout symptoms",
       "intent": "informational",
       "commercialDestination": "/burnout-coaching",
       "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
@@ -233,10 +288,130 @@
       "territory": "Nervous system coaching",
       "slug": "nervous-system-dysregulation-signs",
       "workingTitle": "Signs of Nervous System Dysregulation—and What They Can and Cannot Tell You",
-      "primaryKeyword": "signs of nervous system dysregulation",
+      "primaryKeyword": "nervous system dysregulation",
       "intent": "informational",
       "commercialDestination": "/nervous-system",
       "evidenceRequirement": "Authoritative public-health, professional-body or primary sources; maintain explicit coaching scope.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Burnout coaching",
+      "slug": "adhd-burnout",
+      "workingTitle": "ADHD Burnout: Signs, Patterns and a Recovery-Led Approach",
+      "primaryKeyword": "ADHD burnout",
+      "intent": "informational",
+      "commercialDestination": "/adhd-coaching",
+      "evidenceRequirement": "NICE and NHS ADHD sources; state that ADHD burnout is an informal term and maintain clinical boundaries.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Burnout coaching",
+      "slug": "burnout-vs-depression",
+      "workingTitle": "Burnout vs Depression: How They Differ and When to Seek Support",
+      "primaryKeyword": "burnout vs depression",
+      "intent": "comparison-health",
+      "commercialDestination": "/burnout-coaching",
+      "evidenceRequirement": "WHO, NHS and NICE sources; no self-diagnosis and clinical support must lead for depression or risk.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Nervous system coaching",
+      "slug": "nervous-system-regulation",
+      "workingTitle": "What Is Nervous System Regulation?",
+      "primaryKeyword": "nervous system regulation",
+      "intent": "informational",
+      "commercialDestination": "/nervous-system",
+      "evidenceRequirement": "Authoritative physiology and public-health sources; regulation is shorthand, not diagnosis or treatment.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Nervous system coaching",
+      "slug": "how-to-calm-your-nervous-system",
+      "workingTitle": "How to Calm Your Nervous System Without Making Recovery Another Task",
+      "primaryKeyword": "calm nervous system",
+      "intent": "practical-informational",
+      "commercialDestination": "/nervous-system",
+      "evidenceRequirement": "NHS and WHO stress-management sources; no guaranteed instant calm or treatment claims.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Nervous system coaching",
+      "slug": "can-you-reset-your-nervous-system",
+      "workingTitle": "Can You Reset Your Nervous System? What the Phrase Gets Right and Wrong",
+      "primaryKeyword": "reset nervous system",
+      "intent": "myth-answer",
+      "commercialDestination": "/nervous-system",
+      "evidenceRequirement": "Explicitly reject a literal reset and avoid fixed timelines or universal interventions.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Executive performance coaching",
+      "slug": "how-to-choose-an-executive-coach-london",
+      "workingTitle": "How to Choose an Executive Coach in London",
+      "primaryKeyword": "how to choose an executive coach London",
+      "intent": "commercial-investigation",
+      "commercialDestination": "/executive-performance-coaching",
+      "evidenceRequirement": "Professional ethics and scope sources; do not imply a regulated title or unheld credential.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Executive performance coaching",
+      "slug": "performance-coach-vs-executive-coach",
+      "workingTitle": "Performance Coach vs Executive Coach: Which Support Do You Need?",
+      "primaryKeyword": "performance coach vs executive coach",
+      "intent": "comparison",
+      "commercialDestination": "/executive-performance-coaching",
+      "evidenceRequirement": "Compare stated service scopes without invented credentials, outcomes or clinical claims.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "is-a-personal-trainer-worth-it",
+      "workingTitle": "Is a Personal Trainer Worth It?",
+      "primaryKeyword": "is a personal trainer worth it",
+      "intent": "commercial-investigation",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Transparent decision framework; no guaranteed outcomes or invented market claims.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "how-to-choose-a-personal-trainer-london",
+      "workingTitle": "How to Choose a Personal Trainer in London",
+      "primaryKeyword": "how to choose a personal trainer London",
+      "intent": "commercial-investigation",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Professional-scope and public register sources; no invented credential or ranking claims.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "how-often-should-you-see-a-personal-trainer",
+      "workingTitle": "How Often Should You See a Personal Trainer?",
+      "primaryKeyword": "how often should you see a personal trainer",
+      "intent": "informational-commercial",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Individualised coaching guidance; distinguish coaching frequency from training frequency.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Strength and conditioning",
+      "slug": "how-many-strength-sessions-per-week",
+      "workingTitle": "How Many Strength Sessions Should You Do Per Week?",
+      "primaryKeyword": "how many strength sessions per week",
+      "intent": "informational",
+      "commercialDestination": "/strength-conditioning",
+      "evidenceRequirement": "Official activity guidance and current resistance-training evidence; individualise dose.",
+      "status": "implemented"
+    },
+    {
+      "territory": "Personal training",
+      "slug": "signs-you-need-a-rest-day",
+      "workingTitle": "Signs You Need a Rest Day—and Why Recovery Is Part of Training",
+      "primaryKeyword": "signs you need a rest day",
+      "intent": "informational-health",
+      "commercialDestination": "/personal-training",
+      "evidenceRequirement": "Recovery and overtraining consensus sources; identify Abraham's traffic-light check as a coaching heuristic.",
       "status": "implemented"
     }
   ]
