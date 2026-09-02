@@ -514,12 +514,13 @@ document.querySelectorAll('.specular').forEach(function(card) {
   // Map section IDs to clean URL paths
   var sectionToPath = {
     'problems':   '/the-problem',
-    'method':     '/method',
+    'race':       '/race',
     'coaching':   '/coaching',
+    'who-its-for':'/who-its-for',
     'about':      '/about',
-    'for-you':    '/for-you',
-    'pricing':    '/pricing',
-    'insights':   '/insights'
+    'research':   '/research',
+    'insights':   '/insights',
+    'faq':        '/faq'
   };
 
   // Reverse map: path → section ID (for page load scroll)
@@ -528,23 +529,12 @@ document.querySelectorAll('.specular').forEach(function(card) {
     pathToSection[sectionToPath[id]] = id;
   });
 
-  // On page load: if URL is a section path, scroll to that section instantly
+  // Resolve either a clean section path or an incoming homepage fragment.
   var initialPath = window.location.pathname;
   var initialSectionId = pathToSection[initialPath];
-  if (initialSectionId) {
-    // Hide page until positioned — prevents flash of hero before scroll
-    document.documentElement.style.scrollBehavior = 'auto';
-    document.body.style.visibility = 'hidden';
-    window.addEventListener('DOMContentLoaded', function() {
-      var target = document.getElementById(initialSectionId);
-      if (target) {
-        var navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
-        window.scrollTo(0, target.offsetTop - navHeight);
-      }
-      document.body.style.visibility = '';
-      document.documentElement.style.scrollBehavior = '';
-    });
-  }
+  var initialHashId = window.location.hash ? window.location.hash.slice(1) : '';
+  var initialTargetId = initialSectionId || initialHashId;
+  var initialTarget = initialTargetId ? document.getElementById(initialTargetId) : null;
 
   // Active nav highlighting + URL update on scroll
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
@@ -553,6 +543,13 @@ document.querySelectorAll('.specular').forEach(function(card) {
     var target = document.querySelector(link.getAttribute('href'));
     if (target) sections.push({ el: target, link: link });
   });
+
+  // The enquiry section is reached from service-page CTAs rather than the
+  // desktop nav. Include it in the ordered route map so the active-nav
+  // observer cannot stop a /#research navigation at the preceding section.
+  var researchSection = document.getElementById('research');
+  if (researchSection) sections.push({ el: researchSection, link: null });
+  sections.sort(function(a, b) { return a.el.offsetTop - b.el.offsetTop; });
 
   // Section URL rewriting belongs to the homepage only. Service pages link
   // back with /#section URLs, so they intentionally produce no local sections.
@@ -572,7 +569,7 @@ document.querySelectorAll('.specular').forEach(function(card) {
     navLinks.forEach(function(l) { l.classList.remove('nav-active'); });
 
     if (activeSection) {
-      activeSection.link.classList.add('nav-active');
+      if (activeSection.link) activeSection.link.classList.add('nav-active');
       var newPath = sectionToPath[activeSection.el.id] || '/';
       if (newPath !== currentPath) {
         currentPath = newPath;
@@ -585,7 +582,36 @@ document.querySelectorAll('.specular').forEach(function(card) {
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
-  updateActiveNav();
+
+  function positionInitialTarget() {
+    if (!initialTarget) return;
+    document.documentElement.style.scrollBehavior = 'auto';
+    var navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+    window.scrollTo(0, Math.max(0, initialTarget.offsetTop - navHeight));
+    currentPath = sectionToPath[initialTarget.id] || initialPath;
+    history.replaceState(null, '', currentPath);
+    document.body.style.visibility = '';
+    requestAnimationFrame(function() {
+      document.documentElement.style.scrollBehavior = '';
+      updateActiveNav();
+    });
+  }
+
+  if (initialTarget) {
+    // Position before the active-section router can replace an intermediate
+    // path and cancel the browser's native fragment scroll.
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.visibility = 'hidden';
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', positionInitialTarget, { once: true });
+    } else {
+      positionInitialTarget();
+    }
+    // Re-apply after late-loading media has established final section offsets.
+    window.addEventListener('load', positionInitialTarget, { once: true });
+  } else {
+    updateActiveNav();
+  }
 })();
 
 // ===== EXIT-INTENT TRIGGER =====
