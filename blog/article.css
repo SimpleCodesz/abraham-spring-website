@@ -562,6 +562,15 @@ body.editorial-page a {
   .author-card { grid-template-columns: 48px 1fr; padding: 20px; }
   .author-mark { width: 48px; height: 48px; border-radius: 15px; }
   .share-row { justify-content: flex-start; flex-wrap: wrap; }
+  .comparison-table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comparison-table th,
+  .comparison-table td { overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {

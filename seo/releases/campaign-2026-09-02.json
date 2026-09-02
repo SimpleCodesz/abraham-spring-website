@@ -1,0 +1,84 @@
+{
+  "campaign": "Abraham Spring 30-keyword content campaign",
+  "market": "United Kingdom",
+  "created": "2026-09-02",
+  "status": "in-review",
+  "releasePolicy": {
+    "batchSize": 5,
+    "approvalRequiredBeforeMerge": true,
+    "deployAfterMerge": "Netlify production deploy",
+    "indexingAfterLiveVerification": [
+      "Google Search Console",
+      "Bing Webmaster Tools"
+    ],
+    "measurementDaysAfterRelease": [14, 28, 56]
+  },
+  "waves": [
+    {
+      "wave": 1,
+      "rationale": "Protect the existing burnout ranking and establish the highest-value commercial hubs.",
+      "deliverables": [
+        "/blog/am-i-burnt-out",
+        "/burnout-coaching",
+        "/adhd-coaching",
+        "/personal-training",
+        "/performance-coaching"
+      ]
+    },
+    {
+      "wave": 2,
+      "rationale": "Build the core cluster pillars and lower-difficulty commercial opportunities.",
+      "deliverables": [
+        "/blog/adhd-burnout",
+        "/blog/nervous-system-regulation",
+        "/executive-performance-coaching",
+        "/strength-conditioning",
+        "/blog/burnout-recovery-stages"
+      ]
+    },
+    {
+      "wave": 3,
+      "rationale": "Answer high-intent questions and connect them to the relevant service owner.",
+      "deliverables": [
+        "/blog/nervous-system-dysregulation-signs",
+        "/blog/nervous-system-regulation-exercises",
+        "/blog/what-is-adhd-coaching",
+        "/blog/what-does-a-performance-coach-do",
+        "/blog/personal-training-cost-london"
+      ]
+    },
+    {
+      "wave": 4,
+      "rationale": "Expand recovery-led education across comparison, practical and online intent.",
+      "deliverables": [
+        "/blog/burnout-vs-depression",
+        "/blog/how-to-calm-your-nervous-system",
+        "/blog/can-you-reset-your-nervous-system",
+        "/blog/high-performance-without-burnout",
+        "/blog/how-online-personal-training-works"
+      ]
+    },
+    {
+      "wave": 5,
+      "rationale": "Capture decision-stage searches with scope-safe comparisons and selection guides.",
+      "deliverables": [
+        "/blog/adhd-coaching-vs-therapy",
+        "/blog/how-to-choose-an-executive-coach-london",
+        "/blog/performance-coach-vs-executive-coach",
+        "/blog/how-to-choose-a-personal-trainer-london",
+        "/blog/is-a-personal-trainer-worth-it"
+      ]
+    },
+    {
+      "wave": 6,
+      "rationale": "Complete the high-performer and training-recovery support cluster.",
+      "deliverables": [
+        "/high-performer-burnout",
+        "/blog/how-often-should-you-see-a-personal-trainer",
+        "/blog/how-many-strength-sessions-per-week",
+        "/blog/signs-you-need-a-rest-day",
+        "/blog/strength-and-conditioning-vs-personal-training"
+      ]
+    }
+  ]
+}
