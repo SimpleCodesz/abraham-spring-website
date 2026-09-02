@@ -1,0 +1,23 @@
+{
+  "lane": "training-recovery",
+  "updated": "2026-09-02",
+  "market": "United Kingdom",
+  "commercialDestination": "/personal-training",
+  "guardrails": [
+    "Abraham owns one-to-one coaching, London personal training, strength coaching and recovery decisions.",
+    "Unbroken retains triathlon, endurance-programme and training-plan intent.",
+    "No diagnosis, treatment, injury-prevention guarantee or invented client outcome."
+  ],
+  "deliverables": [
+    {"path":"/personal-training","type":"service","primaryKeyword":"personal trainer London","secondaryKeywords":["personal training London","online personal trainer UK"],"status":"upgraded"},
+    {"path":"/strength-conditioning","type":"service","primaryKeyword":"strength and conditioning coach","secondaryKeywords":["strength coach London","strength and conditioning coach London"],"status":"upgraded"},
+    {"path":"/blog/personal-training-cost-london","type":"article","primaryKeyword":"personal training cost London","secondaryKeywords":["London personal trainer prices","personal training packages London"],"status":"upgraded"},
+    {"path":"/blog/how-online-personal-training-works","type":"article","primaryKeyword":"online personal trainers","secondaryKeywords":["online personal training UK","how online personal training works"],"status":"upgraded"},
+    {"path":"/blog/strength-and-conditioning-vs-personal-training","type":"comparison","primaryKeyword":"strength and conditioning vs personal training","secondaryKeywords":["strength coach vs personal trainer","S&C coach vs PT"],"status":"upgraded"},
+    {"path":"/blog/is-a-personal-trainer-worth-it","type":"article","primaryKeyword":"is a personal trainer worth it","secondaryKeywords":["are personal trainers worth it","personal trainer value"],"status":"created"},
+    {"path":"/blog/how-to-choose-a-personal-trainer-london","type":"article","primaryKeyword":"how to choose a personal trainer London","secondaryKeywords":["choose personal trainer London","best personal trainer for me"],"status":"created"},
+    {"path":"/blog/how-often-should-you-see-a-personal-trainer","type":"article","primaryKeyword":"how often should you see a personal trainer","secondaryKeywords":["personal trainer once a week","personal training frequency"],"status":"created"},
+    {"path":"/blog/how-many-strength-sessions-per-week","type":"article","primaryKeyword":"how many strength sessions per week","secondaryKeywords":["strength training frequency","two strength sessions a week"],"status":"created"},
+    {"path":"/blog/signs-you-need-a-rest-day","type":"article","primaryKeyword":"signs you need a rest day","secondaryKeywords":["should I take a rest day","active recovery day"],"status":"created"}
+  ]
+}
