@@ -8,11 +8,13 @@
     "Position incoming fragment and clean-path targets before active-section URL replacement",
     "Include the enquiry section in ordered route tracking",
     "Preserve service-page URLs when no local homepage sections exist",
-    "Bump the shared script cache version across all HTML consumers"
+    "Bump the shared script cache version across all HTML consumers",
+    "Rewrite every clean homepage section route to index.html so reloads and direct visits remain valid"
   ],
   "validation": [
     "Executive Performance Coaching, Strength and Conditioning and Performance Coaching CTAs reach /research with the enquiry form present",
     "Direct /#research navigation reaches /research",
+    "Direct clean section paths, including /research and /about, render the matching homepage section",
     "Homepage About navigation still reaches /about",
     "JavaScript syntax, SEO validators and Git diff checks pass"
   ],

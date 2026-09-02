@@ -14,6 +14,47 @@
   to = "/"
   status = 301
 
+# Homepage section routes written by script.js must remain directly loadable.
+[[redirects]]
+  from = "/the-problem"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/race"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/coaching"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/who-its-for"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/research"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/insights"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/index.html"
+  status = 200
+
 [[redirects]]
   from = "/podcast"
   to = "/podcast.html"
