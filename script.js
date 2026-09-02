@@ -554,6 +554,12 @@ document.querySelectorAll('.specular').forEach(function(card) {
     if (target) sections.push({ el: target, link: link });
   });
 
+  // Section URL rewriting belongs to the homepage only. Service pages link
+  // back with /#section URLs, so they intentionally produce no local sections.
+  // Leaving the router active there would replace the service URL with `/` and
+  // break subsequent homepage-fragment CTAs on the still-mounted service DOM.
+  if (!sections.length) return;
+
   var currentPath = window.location.pathname;
 
   function updateActiveNav() {
