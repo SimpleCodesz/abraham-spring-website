@@ -303,9 +303,9 @@ const coachingAttribution = (function() {
   if (inferredTopic) safeSessionSet('as_content_topic', inferredTopic);
 
   return {
-    source: safeSessionGet('as_content_source') || referrerPath || window.location.pathname,
+    source: safeSessionGet('as_content_source') || safeSessionGet('as_last_coaching_touch') || referrerPath || window.location.pathname,
     topic: safeSessionGet('as_content_topic'),
-    landing: referrerPath || 'direct'
+    landing: referrerPath || safeSessionGet('as_last_coaching_touch') || 'direct'
   };
 })();
 
