@@ -17,8 +17,9 @@
 - SE Ranking project: `12841586`
 - Google UK English engine: `357052`
 - Frequency: daily, top 100
-- Initial tracked cohort: 21 keywords across six ownership territories
-- Google Search Console: direct property access verified; baseline captured in `baseline-2026-08-30.md`
-- Bing Webmaster Tools: authenticated account session still required
+- Tracked cohort: 60 strict UK keywords across six ownership territories and the authority-article group
+- First movement: `am I burnt out` entered at position 24 on 2 September 2026 (590 UK monthly searches in SE Ranking)
+- Google Search Console: direct property access verified and connected to the SE Ranking project
+- Bing Webmaster Tools: property imported through GSC; `sitemap.xml` imported and processing with zero errors or warnings on 2 September 2026
 
 The article backlog in `ownership.json` is prioritised but not automatically approved for publication. Each article needs an evidence pack, Abraham-voice edit, internal-link review and independent QA.

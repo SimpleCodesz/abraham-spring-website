@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-08-30",
+  "version": 2,
+  "updated": "2026-09-02",
   "market": "United Kingdom",
   "measurement": {
     "seRankingProjectId": 12841586,
@@ -8,14 +8,14 @@
     "frequency": "daily",
     "depth": 100,
     "firstPositionCheck": "2026-08-30",
-    "firstPositionBaseline": "0-of-22-in-top-100-pre-release",
-    "googleSearchConsole": "verified-direct",
+    "firstPositionBaseline": "2026-09-02: am I burnt out entered at position 24; 1-of-60 in top 30",
+    "googleSearchConsole": "verified-direct-and-connected-to-se-ranking",
     "googleAnalyticsPropertyId": 527266759,
     "googleAnalyticsStatus": "verified-direct-search-console-link-and-key-event-pending",
-    "bingWebmasterTools": "account-session-required",
-    "trackedKeywords": 42,
+    "bingWebmasterTools": "verified-via-gsc; sitemap-imported-processing",
+    "trackedKeywords": 60,
     "authorityArticleKeywords": 22,
-    "latestKeywordExpansion": "20 strict UK article keywords added in SE Ranking on 2026-08-30"
+    "latestKeywordExpansion": "18 strict UK commercial and local-intent keywords added in SE Ranking on 2026-08-31"
   },
   "guardrails": [
     "British English throughout.",
