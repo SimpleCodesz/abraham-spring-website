@@ -1,757 +1,121 @@
-// ===== MOBILE MENU =====
-const mobileToggle = document.getElementById('mobileToggle');
-const mobileMenu = document.getElementById('mobileMenu');
+(function () {
+  'use strict';
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-mobileToggle?.addEventListener('click', () => {
-  const isOpen = mobileMenu.style.display === 'flex';
-  mobileMenu.style.display = isOpen ? 'none' : 'flex';
-  mobileToggle.classList.toggle('open', !isOpen);
-  mobileToggle.setAttribute('aria-expanded', !isOpen);
-  mobileMenu.setAttribute('aria-hidden', isOpen);
-});
-
-mobileMenu?.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mobileMenu.style.display = 'none';
-    mobileToggle.classList.remove('open');
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-  });
-});
-
-// ===== FAQ ACCORDION =====
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.setAttribute('aria-expanded', 'false');
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-
-    item.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  // Mini rings: the app's four rings (Protocol, Recovery, Sleep, Load), outside to inside
+  var RING_COLOURS = ['#FFE814', '#00FF88', '#BF5FFF', '#FC4C02'];
+  var RING_RADII = [92, 74, 56, 38];
+  $$('.mini.ringfig').forEach(function (el) {
+    var v = el.getAttribute('data-v').split(',');
+    var s = '<svg class="rings" viewBox="0 0 200 200" aria-hidden="true">';
+    RING_RADII.forEach(function (r, i) {
+      s += '<circle class="trk" cx="100" cy="100" r="' + r + '" style="--c:' + RING_COLOURS[i] + '"/>' +
+           '<circle class="rg r' + (i + 1) + '" cx="100" cy="100" r="' + r + '" pathLength="100" style="--c:' + RING_COLOURS[i] + ';--v:' + v[i] + '"/>';
     });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-
-// ===== STATS COUNT-UP ANIMATION =====
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Animate count-up numbers
-      entry.target.querySelectorAll('.stat-number[data-count]').forEach(el => {
-        const target = parseInt(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        const duration = 1600;
-        const start = performance.now();
-
-        const animate = (now) => {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-          const current = Math.round(eased * target);
-          el.textContent = current + suffix;
-          if (progress < 1) requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-      });
-
-      // Fade in "British Triathlon" text
-      entry.target.querySelectorAll('.stat-number:not([data-count])').forEach(el => {
-        el.style.opacity = '1';
-      });
-
-      // Stagger fade-in for each stat item
-      entry.target.querySelectorAll('.stat-item').forEach((item, i) => {
-        setTimeout(() => {
-          item.classList.add('stat-visible');
-        }, i * 150);
-      });
-
-      statsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) statsObserver.observe(statsBar);
-
-// ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-
-// ===== CAROUSEL ARROWS =====
-document.querySelectorAll('.carousel-wrap').forEach(wrap => {
-  const track = wrap.querySelector('.carousel-track');
-  const prev = wrap.querySelector('.carousel-prev');
-  const next = wrap.querySelector('.carousel-next');
-  if (!track || !prev || !next) return;
-
-  const scrollAmount = () => {
-    const card = track.querySelector(':scope > *');
-    return card ? card.offsetWidth + 20 : 360;
-  };
-
-  const updateArrows = () => {
-    prev.classList.toggle('hidden', track.scrollLeft <= 10);
-    next.classList.toggle('hidden', track.scrollLeft >= track.scrollWidth - track.clientWidth - 10);
-  };
-
-  prev.addEventListener('click', () => {
-    track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    el.innerHTML = s + '</svg>';
   });
 
-  next.addEventListener('click', () => {
-    track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+  // Nav: solid bar after scrolling, mobile menu
+  var nav = $('#nav'), burger = $('#burger'), links = $('#navLinks');
+  function onScroll() { nav.classList.toggle('stuck', window.scrollY > 24); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  burger.addEventListener('click', function () {
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    if (open) nav.classList.add('stuck');
   });
-
-  track.addEventListener('scroll', updateArrows, { passive: true });
-  updateArrows();
-  // Re-check after layout settles
-  setTimeout(updateArrows, 100);
-});
-
-// ===== APPLE-STYLE SCROLL REVEAL (STAGGERED) =====
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // For cards inside carousels, stagger by sibling index
-      const parent = entry.target.parentElement;
-      const isCard = entry.target.classList.contains('problem-card') ||
-                     entry.target.classList.contains('race-card') ||
-                     entry.target.classList.contains('coaching-card') ||
-                     entry.target.classList.contains('testimonial-card') ||
-                     entry.target.classList.contains('blog-card');
-
-      if (isCard && parent) {
-        const siblings = Array.from(parent.children).filter(c =>
-          c.classList.contains('scroll-reveal'));
-        const idx = siblings.indexOf(entry.target);
-        const delay = idx * 80; // 80ms stagger per card
-        entry.target.style.transitionDelay = delay + 'ms';
-      }
-
-      entry.target.classList.add('revealed');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-const revealElements = document.querySelectorAll('section:not(.hero):not(.stats-bar), .philosophy-quote, .problem-card, .race-card, .coaching-card, .testimonial-card, .blog-card, .faq-group, .about-grid, .apply-card, .form-card, .sarah-hook-card');
-revealElements.forEach(el => {
-  el.classList.add('scroll-reveal');
-  revealObserver.observe(el);
-});
-
-// Reveal elements already above viewport (handles anchor link jumps)
-const revealAbove = () => {
-  revealElements.forEach(el => {
-    if (el.classList.contains('revealed')) return;
-    const rect = el.getBoundingClientRect();
-    if (rect.bottom < 0) {
-      el.style.transition = 'none';
-      el.classList.add('revealed');
-      revealObserver.unobserve(el);
-    }
-  });
-};
-window.addEventListener('scroll', revealAbove, { passive: true });
-// Run once on load for pages loaded at scroll position
-revealAbove();
-
-// ===== STAGGERED CHILD REVEAL =====
-const staggerConfig = {
-  '.for-you':       { children: '.section-tag, .section-title-lg, .for-you-col', stagger: 150 },
-  '.pricing':       { children: '.section-tag, .section-title-lg, .section-desc, .pricing-card-v2', stagger: 100 },
-  '.about':         { children: '.section-tag, .section-title-lg, .about-detail', stagger: 80 },
-  '.faq':           { children: '.section-title-lg, .faq-group', stagger: 120 },
-  '.method':        { children: '.section-tag, .section-title-lg, .section-desc', stagger: 80 },
-  '.coaching':      { children: '.section-tag, .section-title-lg', stagger: 80 },
-  '.testimonials':  { children: '.section-tag, .section-title-lg, .section-desc', stagger: 80 },
-  '.problems':      { children: '.section-tag, .section-title-lg, .section-desc', stagger: 80 },
-  '.blog-section':  { children: '.section-tag, .section-title-lg, .blog-subtitle', stagger: 80 },
-};
-
-const staggerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const section = entry.target;
-
-    for (const [selector, { children: childSel, stagger }] of Object.entries(staggerConfig)) {
-      if (!section.matches(selector)) continue;
-      const kids = section.querySelectorAll(childSel);
-      kids.forEach((child, i) => {
-        child.style.transitionDelay = (i * stagger) + 'ms';
-        requestAnimationFrame(() => child.classList.add('revealed'));
-      });
-      break;
-    }
-    staggerObserver.unobserve(section);
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-// Nested stagger for For-You list items (slide from left)
-const nestedStaggerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const items = entry.target.querySelectorAll('h3, li');
-    items.forEach((item, i) => {
-      item.style.transitionDelay = (i * 60) + 'ms';
-      requestAnimationFrame(() => item.classList.add('revealed'));
+  $$('a', links).forEach(function (a) {
+    a.addEventListener('click', function () {
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      onScroll();
     });
-    nestedStaggerObserver.unobserve(entry.target);
   });
-}, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
-// Initialize stagger targets
-Object.entries(staggerConfig).forEach(([parentSel, { children: childSel }]) => {
-  const parent = document.querySelector(parentSel);
-  if (!parent) return;
-  parent.querySelectorAll(childSel).forEach(child => child.classList.add('stagger-reveal'));
-  staggerObserver.observe(parent);
-});
-
-// Initialize nested For-You column stagger
-document.querySelectorAll('.for-you-col').forEach(col => {
-  col.querySelectorAll('h3, li').forEach(el => el.classList.add('stagger-reveal'));
-  nestedStaggerObserver.observe(col);
-});
-
-// Reveal stagger elements already above viewport
-const revealStaggerAbove = () => {
-  document.querySelectorAll('.stagger-reveal:not(.revealed)').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.bottom < 0) {
-      el.style.transition = 'none';
-      el.classList.add('revealed');
-    }
-  });
-};
-window.addEventListener('scroll', revealStaggerAbove, { passive: true });
-revealStaggerAbove();
-
-// ===== HERO LOAD ORCHESTRATION =====
-window.addEventListener('DOMContentLoaded', () => {
-  const hero = document.querySelector('.hero-content');
-  if (!hero) return;
-
-  const h1 = hero.querySelector('h1');
-  const sub = hero.querySelector('.hero-sub');
-  const ctas = hero.querySelector('.hero-ctas');
-
-  // Remove the blanket animation and stagger individually
-  hero.style.animation = 'none';
-  hero.style.opacity = '1';
-
-  [h1, sub, ctas].forEach((el, i) => {
-    if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    setTimeout(() => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, 300 + (i * 200)); // 300ms initial delay, 200ms between elements
-  });
-});
-
-// ===== RESEARCH QUESTIONNAIRE — AJAX SUBMISSION =====
-const applicationForm = document.getElementById('applicationForm');
-const formSuccess = document.getElementById('formSuccess');
-
-function safeSessionGet(key) {
-  try { return sessionStorage.getItem(key) || ''; } catch (_) { return ''; }
-}
-
-function safeSessionSet(key, value) {
-  try { sessionStorage.setItem(key, value); } catch (_) { /* Attribution remains best-effort. */ }
-}
-
-// Preserve the article/service journey without storing personal data.
-// The values are submitted with the coffee form and mirrored into GA4.
-const coachingAttribution = (function() {
-  const params = new URLSearchParams(window.location.search);
-  let referrerPath = '';
-  try {
-    const referrer = document.referrer ? new URL(document.referrer) : null;
-    if (referrer && referrer.hostname === window.location.hostname) referrerPath = referrer.pathname;
-  } catch (_) {
-    referrerPath = '';
+  // Explore menu
+  var exBtn = $('#exploreBtn'), exPanel = $('#explore');
+  if (exBtn && exPanel) {
+    var closeEx = function () { exPanel.hidden = true; exBtn.setAttribute('aria-expanded', 'false'); };
+    exBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = exPanel.hidden;
+      exPanel.hidden = !open;
+      exBtn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function (e) { if (!exPanel.contains(e.target)) closeEx(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeEx(); });
   }
 
-  const explicitSource = params.get('source');
-  const explicitTopic = params.get('topic');
-  const contentSource = explicitSource || (referrerPath.startsWith('/blog/') ? referrerPath : '');
-  const inferredTopic = explicitTopic || (contentSource.startsWith('/blog/') ? contentSource.split('/').filter(Boolean).pop() : '');
-  if (contentSource) safeSessionSet('as_content_source', contentSource);
-  if (inferredTopic) safeSessionSet('as_content_topic', inferredTopic);
-
-  return {
-    source: safeSessionGet('as_content_source') || safeSessionGet('as_last_coaching_touch') || referrerPath || window.location.pathname,
-    topic: safeSessionGet('as_content_topic'),
-    landing: referrerPath || safeSessionGet('as_last_coaching_touch') || 'direct'
-  };
-})();
-
-if (applicationForm) {
-  const sourceField = applicationForm.querySelector('[name="source_path"]');
-  const topicField = applicationForm.querySelector('[name="topic_path"]');
-  const referrerField = applicationForm.querySelector('[name="landing_referrer"]');
-  if (sourceField) sourceField.value = coachingAttribution.source;
-  if (topicField) topicField.value = coachingAttribution.topic;
-  if (referrerField) referrerField.value = coachingAttribution.landing;
-  applicationForm.dataset.attributionReady = 'true';
-  applicationForm.dataset.sourceCaptured = coachingAttribution.source ? 'true' : 'false';
-  applicationForm.dataset.topicCaptured = coachingAttribution.topic ? 'true' : 'false';
-
-  applicationForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const submitBtn = this.querySelector('.form-submit');
-    if (submitBtn) {
-      submitBtn.textContent = 'Submitting…';
-      submitBtn.disabled = true;
-    }
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(function(response) {
-      if (response.ok) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'questionnaire_submit', {
-            source_path: coachingAttribution.source,
-            topic_path: coachingAttribution.topic
-          });
-        }
-        window.location.href = '/thank-you';
-      } else {
-        if (submitBtn) {
-          submitBtn.innerHTML = 'Send my answers <span class="btn-arrow">&rsaquo;</span>';
-          submitBtn.disabled = false;
-        }
-        alert('There was an issue sending your answers. Please try again or email welcome@unbrokenclub.com directly.');
-      }
-    })
-    .catch(function() {
-      if (submitBtn) {
-        submitBtn.innerHTML = 'Send my answers <span class="btn-arrow">&rsaquo;</span>';
-        submitBtn.disabled = false;
-      }
-      alert('There was an issue sending your answers. Please try again or email welcome@unbrokenclub.com directly.');
-    });
-  });
-}
-
-// ===== SPECULAR HIGHLIGHT (cursor-tracking, Stripe pattern) =====
-document.querySelectorAll('.specular').forEach(function(card) {
-  card.addEventListener('mousemove', function(e) {
-    var r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
-    card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
-  });
-});
-
-// ===== WORD-BY-WORD REVEAL (Apple Intelligence pattern) =====
-(function() {
-  var paras = document.querySelectorAll('.reveal-words');
-  if (!paras.length) return;
-  paras.forEach(function(p) {
-    var words = p.textContent.trim().split(/\s+/);
-    p.innerHTML = words.map(function(w) {
-      return '<span class="word-reveal">' + w + '</span>';
-    }).join(' ');
-  });
-  var spans = document.querySelectorAll('.word-reveal');
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) e.target.classList.add('lit');
-    });
-  }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
-  spans.forEach(function(s) { io.observe(s); });
-})();
-
-// ===== EMAIL SIGNUP POPUP (15s delay) =====
-(function() {
-  var popup = document.getElementById('emailPopup');
-  var closeBtn = document.getElementById('popupClose');
-  var popupForm = document.getElementById('newsletterPopupForm');
-  var popupSuccess = document.getElementById('popupSuccess');
-  if (!popup) return;
-
-  // Don't show if already dismissed within 7 days
-  var dismissed = localStorage.getItem('popup_dismissed');
-  if (dismissed && (Date.now() - parseInt(dismissed, 10)) < 7 * 24 * 60 * 60 * 1000) return;
-
-  // Don't show if already subscribed
-  if (localStorage.getItem('popup_subscribed')) return;
-
-  // Show after 15 seconds
-  setTimeout(function() {
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }, 15000);
-
-  function closePopup() {
-    popup.classList.remove('active');
-    document.body.style.overflow = '';
-    localStorage.setItem('popup_dismissed', Date.now().toString());
-  }
-
-  // Close on X button
-  closeBtn.addEventListener('click', closePopup);
-
-  // Close on overlay click (not card)
-  popup.addEventListener('click', function(e) {
-    if (e.target === popup) closePopup();
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
-  });
-
-  // AJAX form submission
-  if (popupForm) {
-    popupForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var formData = new FormData(this);
-      var submitBtn = this.querySelector('.popup-submit-btn');
-      if (submitBtn) {
-        submitBtn.textContent = 'Subscribing…';
-        submitBtn.disabled = true;
-      }
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(function(response) {
-        if (response.ok) {
-          if (typeof gtag === 'function') {
-            gtag('event', 'popup_subscribe');
-          }
-          popupForm.style.display = 'none';
-          popupSuccess.style.display = 'block';
-          localStorage.setItem('popup_subscribed', '1');
-          setTimeout(closePopup, 3000);
-        } else {
-          if (submitBtn) {
-            submitBtn.innerHTML = 'Subscribe <span class="btn-arrow">&rsaquo;</span>';
-            submitBtn.disabled = false;
-          }
-          alert('There was an issue. Please try again.');
-        }
-      })
-      .catch(function() {
-        if (submitBtn) {
-          submitBtn.innerHTML = 'Subscribe <span class="btn-arrow">&rsaquo;</span>';
-          submitBtn.disabled = false;
-        }
-        alert('There was an issue. Please try again.');
+  // Reveal on scroll
+  var revealTargets = $$('.rv').concat($$('.ringfig'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    });
-  }
-})();
-
-// ===== STICKY CTA BAR =====
-(function() {
-  var stickyCta = document.getElementById('stickyCta');
-  var hero = document.querySelector('.hero');
-  var applyForm = document.getElementById('research');
-  if (!stickyCta || !hero) return;
-
-  var stickyObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.target === hero) {
-        // Show sticky when hero is NOT visible
-        if (!entry.isIntersecting) {
-          stickyCta.classList.add('visible');
-          stickyCta.setAttribute('aria-hidden', 'false');
-        } else {
-          stickyCta.classList.remove('visible');
-          stickyCta.setAttribute('aria-hidden', 'true');
-        }
-      }
-    });
-  }, { threshold: 0 });
-
-  stickyObserver.observe(hero);
-
-  // Hide when user reaches the application form
-  if (applyForm) {
-    var formObserver = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) {
-        stickyCta.classList.remove('visible');
-        stickyCta.setAttribute('aria-hidden', 'true');
-      }
-    }, { threshold: 0.1 });
-    formObserver.observe(applyForm);
-  }
-})();
-
-// ===== CLEAN URL ROUTING =====
-(function() {
-  // Map section IDs to clean URL paths
-  var sectionToPath = {
-    'problems':   '/the-problem',
-    'race':       '/race',
-    'coaching':   '/coaching',
-    'who-its-for':'/who-its-for',
-    'about':      '/about',
-    'research':   '/research',
-    'insights':   '/insights',
-    'faq':        '/faq'
-  };
-
-  // Reverse map: path → section ID (for page load scroll)
-  var pathToSection = {};
-  Object.keys(sectionToPath).forEach(function(id) {
-    pathToSection[sectionToPath[id]] = id;
-  });
-
-  // Resolve either a clean section path or an incoming homepage fragment.
-  var initialPath = window.location.pathname;
-  var initialSectionId = pathToSection[initialPath];
-  var initialHashId = window.location.hash ? window.location.hash.slice(1) : '';
-  var initialTargetId = initialSectionId || initialHashId;
-  var initialTarget = initialTargetId ? document.getElementById(initialTargetId) : null;
-
-  // Active nav highlighting + URL update on scroll
-  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  var sections = [];
-  navLinks.forEach(function(link) {
-    var target = document.querySelector(link.getAttribute('href'));
-    if (target) sections.push({ el: target, link: link });
-  });
-
-  // The enquiry section is reached from service-page CTAs rather than the
-  // desktop nav. Include it in the ordered route map so the active-nav
-  // observer cannot stop a /#research navigation at the preceding section.
-  var researchSection = document.getElementById('research');
-  if (researchSection) sections.push({ el: researchSection, link: null });
-  sections.sort(function(a, b) { return a.el.offsetTop - b.el.offsetTop; });
-
-  // Section URL rewriting belongs to the homepage only. Service pages link
-  // back with /#section URLs, so they intentionally produce no local sections.
-  // Leaving the router active there would replace the service URL with `/` and
-  // break subsequent homepage-fragment CTAs on the still-mounted service DOM.
-  if (!sections.length) return;
-
-  var currentPath = window.location.pathname;
-
-  function updateActiveNav() {
-    var scrollPos = window.scrollY + 120;
-    var activeSection = null;
-    sections.forEach(function(s) {
-      if (s.el.offsetTop <= scrollPos) activeSection = s;
-    });
-
-    navLinks.forEach(function(l) { l.classList.remove('nav-active'); });
-
-    if (activeSection) {
-      if (activeSection.link) activeSection.link.classList.add('nav-active');
-      var newPath = sectionToPath[activeSection.el.id] || '/';
-      if (newPath !== currentPath) {
-        currentPath = newPath;
-        history.replaceState(null, '', newPath);
-      }
-    } else if (window.scrollY < 80 && currentPath !== '/') {
-      currentPath = '/';
-      history.replaceState(null, '', '/');
-    }
-  }
-
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-
-  function positionInitialTarget() {
-    if (!initialTarget) return;
-    document.documentElement.style.scrollBehavior = 'auto';
-    var navHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
-    window.scrollTo(0, Math.max(0, initialTarget.offsetTop - navHeight));
-    currentPath = sectionToPath[initialTarget.id] || initialPath;
-    history.replaceState(null, '', currentPath);
-    document.body.style.visibility = '';
-    requestAnimationFrame(function() {
-      document.documentElement.style.scrollBehavior = '';
-      updateActiveNav();
-    });
-  }
-
-  if (initialTarget) {
-    // Position before the active-section router can replace an intermediate
-    // path and cancel the browser's native fragment scroll.
-    document.documentElement.style.scrollBehavior = 'auto';
-    document.body.style.visibility = 'hidden';
-    if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', positionInitialTarget, { once: true });
-    } else {
-      positionInitialTarget();
-    }
-    // Re-apply after late-loading media has established final section offsets.
-    window.addEventListener('load', positionInitialTarget, { once: true });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    revealTargets.forEach(function (el) { io.observe(el); });
   } else {
-    updateActiveNav();
-  }
-})();
-
-// ===== EXIT-INTENT TRIGGER =====
-(function() {
-  var popup = document.getElementById('emailPopup');
-  if (!popup) return;
-  var exitTriggered = false;
-
-  document.addEventListener('mouseout', function(e) {
-    if (exitTriggered) return;
-    if (localStorage.getItem('popup_dismissed')) return;
-    if (localStorage.getItem('popup_subscribed')) return;
-    if (popup.classList.contains('active')) return;
-
-    if (e.clientY <= 5 && e.relatedTarget === null) {
-      exitTriggered = true;
-      popup.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-})();
-
-// ===== POPUP FOCUS TRAP =====
-(function() {
-  var popup = document.getElementById('emailPopup');
-  if (!popup) return;
-
-  popup.addEventListener('keydown', function(e) {
-    if (e.key !== 'Tab') return;
-    var focusable = popup.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])');
-    if (focusable.length === 0) return;
-    var first = focusable[0];
-    var last = focusable[focusable.length - 1];
-
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  });
-})();
-
-// ===== EXPLORE MEGA MENU =====
-(function() {
-  var trigger = document.getElementById('navExplore');
-  var menu = document.getElementById('megaMenu');
-  if (!trigger || !menu) return;
-  var closeTimer;
-  var lastPointerType = '';
-
-  function open() {
-    clearTimeout(closeTimer);
-    menu.classList.add('open');
-    trigger.setAttribute('aria-expanded', 'true');
-  }
-  function close() {
-    clearTimeout(closeTimer);
-    menu.classList.remove('open');
-    trigger.setAttribute('aria-expanded', 'false');
-  }
-  function scheduleClose() {
-    clearTimeout(closeTimer);
-    closeTimer = setTimeout(close, 160);
+    revealTargets.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Hover opens/closes for MOUSE pointers only (desktop affordance). Checking
-  // pointerType per-event (not device media queries) keeps hybrid touch+mouse
-  // laptops correct.
-  trigger.addEventListener('pointerenter', function(e) {
-    lastPointerType = e.pointerType;
-    if (e.pointerType === 'mouse') open();
-  });
-  trigger.addEventListener('pointerleave', function(e) {
-    if (e.pointerType === 'mouse') scheduleClose();
-  });
-  menu.addEventListener('pointerenter', function(e) {
-    if (e.pointerType === 'mouse') clearTimeout(closeTimer);
-  });
-  menu.addEventListener('pointerleave', function(e) {
-    if (e.pointerType === 'mouse') scheduleClose();
-  });
-
-  // Click toggles for touch + keyboard. For a mouse, hover already manages the
-  // open state, so ignore the mouse click — otherwise it would instantly close
-  // what pointerenter just opened. Keyboard activation reports detail === 0.
-  trigger.addEventListener('click', function(e) {
-    e.preventDefault();
-    if (e.detail !== 0 && lastPointerType === 'mouse') return;
-    if (menu.classList.contains('open')) close(); else open();
-  });
-
-  // Close on link click, Escape, or click outside
-  menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && menu.classList.contains('open')) { close(); trigger.focus(); }
-  });
-  document.addEventListener('click', function(e) {
-    if (!menu.classList.contains('open')) return;
-    if (menu.contains(e.target) || trigger.contains(e.target)) return;
-    close();
-  });
-})();
-
-// ===== GA4 CONVERSION EVENTS =====
-(function() {
-  if (typeof gtag !== 'function') return;
-
-  // Track "Book a Discovery Call" / "Apply Now" CTA clicks
-  document.querySelectorAll('.nav-cta, .sticky-cta-btn, .btn-primary[href="#research"], .hero-ctas .btn-primary').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      safeSessionSet('as_last_coaching_touch', window.location.pathname);
-      gtag('event', 'cta_click', {
-        cta_text: this.textContent.trim(),
-        cta_location: this.closest('nav') ? 'navbar' : this.closest('.sticky-cta') ? 'sticky_bar' : this.closest('.hero') ? 'hero' : 'page',
-        source_path: coachingAttribution.source,
-        page_path: window.location.pathname
-      });
-    });
-  });
-
-  // Track blog article clicks
-  document.querySelectorAll('.blog-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var title = this.querySelector('.blog-card-title');
-      gtag('event', 'blog_click', { article: title ? title.textContent.trim() : 'unknown' });
-    });
-  });
-
-  // Track scroll depth milestones (25%, 50%, 75%, 100%)
-  var milestones = [25, 50, 75, 100];
-  var fired = {};
-  window.addEventListener('scroll', function() {
-    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    milestones.forEach(function(m) {
-      if (scrollPct >= m && !fired[m]) {
-        fired[m] = true;
-        gtag('event', 'scroll_depth', { depth: m + '%' });
+  // Package stage tabs (home page only)
+  var tabs = $$('.stage-tabs [role=tab]'), bar = $('.tab-bar');
+  if (!tabs.length) return;
+  function moveBar(t) {
+    bar.style.width = t.offsetWidth + 'px';
+    bar.style.transform = 'translateX(' + (t.offsetLeft - 5) + 'px)';
+  }
+  function select(i) {
+    tabs.forEach(function (t, n) {
+      var on = n === i;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      var panel = $('#' + t.getAttribute('aria-controls'));
+      panel.hidden = !on;
+      var mini = $('.mini', panel);
+      if (mini) {
+        mini.classList.remove('in');
+        if (on) { void mini.offsetWidth; setTimeout(function () { mini.classList.add('in'); }, 60); }
       }
     });
-  }, { passive: true });
+    moveBar(tabs[i]);
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft') n = (i + tabs.length - 1) % tabs.length;
+      if (n !== null) { e.preventDefault(); select(n); tabs[n].focus(); }
+    });
+  });
+  moveBar(tabs[0]);
+  window.addEventListener('resize', function () {
+    var cur = tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0];
+    moveBar(cur);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { moveBar(tabs[0]); });
+
+  // Shape your package: chips feed the booking form
+  var chips = $$('.chip'), out = $('#builderText'), field = $('#focusField');
+  function update() {
+    var picked = chips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; })
+      .map(function (c) { return c.textContent.trim(); });
+    if (!picked.length) {
+      out.textContent = 'Choose a focus to see where your package begins.';
+      return;
+    }
+    var list = picked.length > 1 ? picked.slice(0, -1).join(', ').toLowerCase() + ' and ' + picked[picked.length - 1].toLowerCase() : picked[0].toLowerCase();
+    out.textContent = 'Your package begins with the Read stage, focused on: ' + list + '.';
+    field.value = 'Focus: ' + picked.join('; ');
+  }
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') !== 'true');
+      update();
+    });
+  });
 })();
