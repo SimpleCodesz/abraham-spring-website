@@ -233,7 +233,6 @@ function render(a) {
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8VF61J7PK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G8VF61J7PK');</script>
   <title>${a.title}</title><meta name="description" content="${a.description}"><meta name="author" content="Abraham Spring"><link rel="canonical" href="${canonical}">
   <meta property="og:type" content="article"><meta property="og:site_name" content="Abraham Spring"><meta property="og:locale" content="en_GB"><meta property="og:title" content="${a.h1}"><meta property="og:description" content="${a.description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${imageUrl}">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${a.h1}"><meta name="twitter:description" content="${a.description}"><meta name="twitter:image" content="${imageUrl}">
@@ -282,7 +281,6 @@ const cards = indexCards.map((a, index) => `<a href="/blog/${a.slug}" class="ins
 
 const blogIndex = `<!DOCTYPE html>
 <html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8VF61J7PK"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G8VF61J7PK');</script>
 <title>Insights on Performance, Burnout & ADHD | Abraham Spring</title><meta name="description" content="Evidence-led articles from Abraham Spring on burnout recovery, nervous system regulation, ADHD coaching, performance and strength coaching."><link rel="canonical" href="https://abrahamspring.co.uk/blog/"><meta name="robots" content="index, follow">
 <meta property="og:type" content="website"><meta property="og:title" content="Insights | Abraham Spring"><meta property="og:description" content="Recovery-led thinking for demanding lives."><meta property="og:url" content="https://abrahamspring.co.uk/blog/"><meta property="og:image" content="https://abrahamspring.co.uk/assets/blog/high-performance-without-burnout-editorial.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=DM+Serif+Display&amp;display=swap">

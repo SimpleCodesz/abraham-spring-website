@@ -119,3 +119,35 @@
     });
   });
 })();
+
+/* Cookie choice: analytics only load after the visitor accepts. */
+(function () {
+  'use strict';
+  var KEY = 'cookie_choice', GA = 'G-G8VF61J7PK';
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function loadGA() {
+    if (window.__gaLoaded) return; window.__gaLoaded = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA; document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date()); window.gtag('config', GA);
+  }
+  function banner() {
+    if (document.getElementById('cookieBar')) return;
+    var b = document.createElement('div'); b.id = 'cookieBar'; b.className = 'cookiebar'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Cookie choice');
+    b.innerHTML = '<p>I use analytics cookies to see which pages help people. Nothing loads unless you accept. <a href="/privacy">Privacy</a></p>' +
+      '<div><button type="button" class="pill pill-ghost" data-c="no">Decline</button><button type="button" class="pill pill-yellow" data-c="yes">Accept</button></div>';
+    b.addEventListener('click', function (e) {
+      var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (!c) return;
+      set(c === 'yes' ? 'accepted' : 'declined'); b.remove(); if (c === 'yes') loadGA();
+    });
+    document.body.appendChild(b);
+  }
+  var v = get();
+  if (v === 'accepted') loadGA(); else if (v !== 'declined') banner();
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-cookie-settings]')) banner();
+  });
+})();

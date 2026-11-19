@@ -550,3 +550,12 @@ h2{letter-spacing:-.04em}
 @media (max-width:760px){.insight-card.featured img{height:auto}}
 .hero-sub{margin:18px auto 0;max-width:30ch;font-size:clamp(20px,2.2vw,26px);line-height:1.2;letter-spacing:-.025em;font-weight:650;color:var(--ink)}
 .hero-sub+.lead{margin-top:14px}
+
+/* Cookie choice bar */
+.cookiebar{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:640px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:16px 18px;border-radius:20px;background:#10111E;color:#F2EFFF;box-shadow:0 12px 40px rgba(8,9,12,.35);font-size:14px;line-height:1.4}
+.cookiebar p{margin:0;flex:1 1 260px}
+.cookiebar a{color:#FFE500;text-decoration:underline}
+.cookiebar div{display:flex;gap:8px}
+.cookiebar .pill{padding:10px 18px;font-size:14px}
+.cookiebar .pill-ghost{background:transparent;color:#F2EFFF;border:1px solid rgba(242,239,255,.35)}
+.linklike{background:none;border:0;padding:0;margin-left:6px;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
