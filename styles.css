@@ -559,3 +559,8 @@ h2{letter-spacing:-.04em}
 .cookiebar .pill{padding:10px 18px;font-size:14px}
 .cookiebar .pill-ghost{background:transparent;color:#F2EFFF;border:1px solid rgba(242,239,255,.35)}
 .linklike{background:none;border:0;padding:0;margin-left:6px;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+
+/* Links from home sections to their own pages */
+.more{margin:20px 0 0}
+.sec.dark .more .pill-ghost,.method-panel .more .pill-ghost,.about-copy .more .pill-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.sec.dark .more .pill-ghost:hover,.method-panel .more .pill-ghost:hover,.about-copy .more .pill-ghost:hover{background:rgba(255,255,255,.12)}
