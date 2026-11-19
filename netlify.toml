@@ -163,28 +163,28 @@
 # Legacy sales/membership URLs → research questionnaire (must come before SPA catch-all)
 [[redirects]]
   from = "/pricing"
-  to = "/#research"
+  to = "/#book"
   status = 301
 
 [[redirects]]
   from = "/membership"
-  to = "/#research"
+  to = "/#book"
   status = 301
 
 [[redirects]]
   from = "/apply"
-  to = "/#research"
+  to = "/#book"
   status = 301
 
 [[redirects]]
   from = "/apply-form"
-  to = "/#research"
+  to = "/#book"
   status = 301
 
 # Legacy URLs still receiving Google impressions
 [[redirects]]
   from = "/contact"
-  to = "/#research"
+  to = "/#book"
   status = 301
 
 [[redirects]]
